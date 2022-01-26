@@ -30,7 +30,7 @@
 * Beverly Antwi-Agyei - [BevAntwi98](https://github.com/BevAntwi98)
 * Jeric Fajardo -[jerriku](https://github.com/jerriku)
 * Ayisha Alli - [AyishaAlli](https://github.com/AyishaAlli)
-* Bence Fogarasy- [BenceFogarasy] (https://github.com/BenceFogarasy)
+* Bence Fogarasy- [BenceFogarasy](https://github.com/BenceFogarasy)
 
 ### Acknowledgemnets
 * Thanks to [MandyWW](https://www.github.com/MandyWW) for assigning this task :)
