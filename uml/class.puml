@@ -1,0 +1,54 @@
+@startuml
+
+title Online Shop - Class Diagram
+
+class User {
+    ..Properties..
+    unique_id: integer
+    name: string
+    ..Methods..
+    addItemToBasket()
+    deleteItemFromBasket()
+    viewBasketItems()
+}
+
+class Basket {
+    ..Properties..
+    items: array [Item]
+    totalPrice: number
+    ..Methods..
+    calculateTotal()
+    addItem()
+    checkout()
+}
+
+class Admin {
+    ..Properties..
+    id: integer
+    name: string
+    ..Methods..
+    addItem()
+    removeItem()
+    updateItem()
+}
+
+class Item {
+    ..Properties..
+    id: integer
+    title: string
+    price: double
+    image: string
+    category: string
+    description: string
+}
+
+class Category {
+    items: array [Item]
+}
+
+User "1"-->"1" Basket : has
+Basket "1"-->"*" Item : has many
+Category "1"-->"*" Item : has many
+Admin -- Item 
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+
+title Online Shop - Use case diagram
+left to right direction
+
+actor User as A
+actor Admin as B
+
+rectangle System {
+  usecase "Open Website" as uc0
+  usecase "View items" as uc1
+  usecase "Filter category" as uc2
+  usecase "Add item to basket" as uc3
+  usecase "View basket" as uc4
+  usecase "Delete item from basket" as uc5
+  
+  usecase "Update item" as uc6
+  usecase "Add item" as uc7
+  usecase "Remove item" as uc8
+}
+
+A --> uc0
+A --> uc1
+A --> uc2
+A --> uc3
+A --> uc4
+A --> uc5
+
+uc6 <-- B
+uc7 <-- B
+uc8 <-- B
+
+@enduml 
