@@ -2,7 +2,7 @@
 
 ## Task
 
-### To build an online shop app utilising topics covered from the bootcamp
+ To build an online shop app utilising topics covered from the bootcamp
 
 </br>
 
