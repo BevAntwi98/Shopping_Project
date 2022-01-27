@@ -12,10 +12,30 @@ const load = async() => {
     const items  = JSON.parse(String(buffer));
     await sequelize.sync({ force: true });
 
+    await Category.create({name: "Men's Clothing"});
+    await Category.create({name: "Jewellery"});
+    await Category.create({name: "Electronics"});
+    await Category.create({name: "Women's Clothing"});
+
     let category_id = 0;
     for (let i = 0; i < items.length; i++) {
-        await Item.create({title: items[i].title, price: items[i].price, image: items[i].image, description: items[i].description});
+        switch (items[i].category) {
+            case "men's clothing":
+                category_id = 1;
+                break;
+            case "jewelry":
+                category_id = 2;
+                break;
+            case "electronics":
+                category_id = 3;
+                break;
+            case "women's clothing":
+                category_id = 4;
+                break;
+        }
+        await Item.create({title: items[i].title, price: items[i].price, image: items[i].image, description: items[i].description, category_id: category_id});
     }
 }
 
-load().catch(err => console.log(err));
+load()
+.catch(err => console.log(err));
