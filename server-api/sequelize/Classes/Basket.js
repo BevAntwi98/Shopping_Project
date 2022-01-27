@@ -15,7 +15,6 @@ Basket.init({
     sequelize,
     timestamps: false,
 })
-
 Basket.hasMany(Item, { as: 'items', foreignKey: 'basket_id' })
 Basket.belongsTo(User, { foreignKey: 'basket_id' })
 
