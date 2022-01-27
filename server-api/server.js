@@ -12,29 +12,40 @@ const load = async() => {
     const items  = JSON.parse(String(buffer));
     await sequelize.sync({ force: true });
 
-    await Category.create({name: "Men's Clothing"});
-    await Category.create({name: "Jewellery"});
-    await Category.create({name: "Electronics"});
-    await Category.create({name: "Women's Clothing"});
 
-    let category_id = 0;
-    for (let i = 0; i < items.length; i++) {
-        switch (items[i].category) {
-            case "men's clothing":
-                category_id = 1;
-                break;
-            case "jewelry":
-                category_id = 2;
-                break;
-            case "electronics":
-                category_id = 3;
-                break;
-            case "women's clothing":
-                category_id = 4;
-                break;
-        }
-        await Item.create({title: items[i].title, price: items[i].price, image: items[i].image, description: items[i].description, category_id: category_id});
+    const categories = getCategories(items);
+
+    for (let i in categories){
+        await Category.create({name: categories[i]});
     }
+
+    //query categories and sorting new items (category field) to match the existing values within category table. item.category_id = category.id
+    let queryResult = await Category.findAll();
+
+    let categoryNames = [];
+    for (let j of queryResult){
+        categoryNames.push(j.name);
+    }
+
+    let categoryID = 0;
+    for (let i = 0; i < items.length; i++) {
+        categoryID = (categoryNames.indexOf(items[i].category)+1);
+        await Item.create({title: items[i].title, price: items[i].price, image: items[i].image, description: items[i].description, category_id: categoryID});
+    }
+}
+
+const getCategories = (items) => {
+
+    let categories = [];
+
+    for (let i in items){
+        if (categories.includes(items[i].category)){
+        }else{
+            categories.push(items[i].category);
+        }
+    }
+
+    return categories;
 }
 
 load()

@@ -133,10 +133,24 @@
        "image":"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
     },
     {
-       "title":"DANVOUY Womens T Shirt Casual Cotton Short",
+       "title":"Spiderman Suit",
        "price":12.99,
        "description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
-       "category":"women's clothing",
+       "category":"kids clothing",
        "image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
-    }
+    },
+    {
+      "title":"Encanto Shirt Girls",
+      "price":12.99,
+      "description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+      "category":"girls clothing",
+      "image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+   },
+   {
+      "title":"Nike shorts",
+      "price":12.99,
+      "description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+      "category":"swimming clothes",
+      "image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+   }
  ]
