@@ -27,6 +27,7 @@ function CarouselContainer(){
       <Carousel.Item interval={4000}>
         <img
           className="d-block w-100"
+          
           src={image3}
           alt="Third slide"
         />

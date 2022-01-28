@@ -1,22 +1,11 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Cart, Lock } from "react-bootstrap-icons"
 
-
-
-function Header(props) {
-
+function CartHeader(props) {
     const title1 = {
-        textAlign: "left",
+        textAlign: "center",
         padding: "10px"
-    }
-    const links = {
-        padding: "27px"
-    }
-    const icon = {
-        padding: "17px",
-        color: "Blue",
     }
 
     return (
@@ -28,9 +17,10 @@ function Header(props) {
                 <Col style={icon}> <Lock size={40} /></Col>
             </Row>
 
+            
+
         </Container>
-
     )
-}
 
-export default Header;
+
+}
