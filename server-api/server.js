@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require('express');
 const { check, validationResult, body } = require('express-validator');
 const fs = require('fs').promises;
@@ -52,6 +53,10 @@ const getCategories = (items) => {
 load()
 .catch(err => console.log(err));
 
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
