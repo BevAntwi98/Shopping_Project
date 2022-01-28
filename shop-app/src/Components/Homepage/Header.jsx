@@ -18,7 +18,7 @@ function Header(props) {
     }
     const icon = {
         padding: "17px",
-        color: "Blue",
+        color: "pink",
     }
     return (
         <Container>
@@ -30,7 +30,7 @@ function Header(props) {
                     <Link to="/products/1"> Men's Clothing</Link> |
                     <Link to="/products/4"> Women's Clothing</Link>
                 </Col>
-                <Col style={icon}> <Cart size={40} /> </Col>
+                <Col style={icon}><Link to={"/cart"}><Cart size={40} /></Link> </Col>
                 <Col style={icon}> <Lock size={40} /></Col>
             </Row>
         </Container>

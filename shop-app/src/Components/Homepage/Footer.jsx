@@ -11,7 +11,7 @@ const Footer = () => {
     }
 
     return (
-        <footer><h3 style={myStyle}>By Bev, Jeric, Ayisha and Bence</h3></footer>
+        <footer><h3 style={myStyle}>By Bev , Jeric , Ayisha and Bence</h3></footer>
     )
 }
 

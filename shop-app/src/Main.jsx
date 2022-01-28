@@ -8,6 +8,7 @@ function Main() {
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/products/:id" element={<Product />} />
+                <Route path="/cart" />
             </Routes>
         </Router>
     );
