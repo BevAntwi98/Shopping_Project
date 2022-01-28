@@ -9,7 +9,7 @@ function Product() {
 
     useEffect(() => {
         if (!isRead) {
-            fetch(`http://localhost:8080/categories/${params.id}`)
+            fetch(`http://localhost:8080/${params.id}`)
                 .then(res => res.json())
                 .then(res => {
                     setCategoryState(res);

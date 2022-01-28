@@ -1,0 +1,84 @@
+
+/* SINGLE ITEM PAGE */
+.details{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:150px ;
+  }
+ 
+  .details .img{
+      width: 450px;
+      height: 450px;
+     
+  }
+  .details .img img{
+      padding-left: 30px;
+      width: 400px;
+      height: 400px;
+      margin: auto;
+  }
+
+
+
+.details .infoSection{
+    max-width: 500px;
+    min-width: 290px;
+    margin: 25px;
+}
+
+.infoSection .row h2{
+      font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .infoSection .row span{
+    color: crimson;
+    font-size: 30px;
+  }
+
+  .infoSection .row p{
+    line-height: 1.5;
+    margin: 15px 0;
+    font-size: 15px;
+  }
+
+  .infoSection .cart-btn{
+    background: #333;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 25px;
+    width: 150px;
+    height: 40px;
+    margin-top: 140px;
+    border: 1px solid #333;
+    outline: none;
+    cursor: pointer;
+  }
+  @media (max-height: 600px){
+    .infoSection .cart-btn{
+        margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 390px){
+
+    .details .img img{
+        width: 350px;
+        height: 350px;
+    }
+    .infoSection .cart-btn{
+        margin-top: 20px;
+    }
+    h1{
+        font-size: 35px;
+    }
+    .infoSection .row span{
+        font-size: 30px;
+    }
+    .infoSection .row p{
+        font-size: 25px;
+    }
+  }
