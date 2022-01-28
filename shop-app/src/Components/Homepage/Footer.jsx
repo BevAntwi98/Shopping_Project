@@ -6,8 +6,13 @@ const Footer = () => {
         textAlign: "center",
         color: "white",
         backgroundColor: "black",
-        padding: "10px",
-        fontFamily: "Sans-Serif"
+        padding: "5px",
+        fontFamily: "Sans-Serif",
+        position: "absolute",
+        left:0,
+        bottom:0,
+        right:0
+
     }
 
     return (
