@@ -1,7 +1,7 @@
 import './App.css';
 import CarouselContainer from './Components/Homepage/Carousel';
 import Header from './Components/Homepage/Header';
-import SingleItem from './Components/Single-item/item'
+import SingleItem from './Components/SingleItem/item'
 
 function App() {
   return (
