@@ -1,5 +1,5 @@
 import './App.css';
-import CarouselContainer from './Components/Homepage/Caraousel';
+import CarouselContainer from './Components/Homepage/Carousel';
 import Header from './Components/Homepage/Header';
 import Footer from './Components/Homepage/Footer'
 
