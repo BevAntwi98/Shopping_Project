@@ -9,17 +9,15 @@ function Product() {
     const [isRead, setReadState] = useState(false);
 
     useEffect(() => {
-        if (!(isRead)) {
-            setTimeout(() => {
-                fetch(`http://localhost:8080/categories/${params.id}`)
-                    .then(res => res.json())
-                    .then(res => {
-                        setCategoryState(res);
-                        setItemsState(res.items);
-                        setReadState(true);
-                    })
-                    .catch(error => console.log(error));
-            }, 1000);
+        if (!isRead) {
+            fetch(`http://localhost:8080/${params.id}`)
+                .then(res => res.json())
+                .then(res => {
+                    setCategoryState(res);
+                    setItemsState(res.items);
+                    setReadState(true);
+                })
+                .catch(error => console.log(error));
         }
     });
 
