@@ -8,7 +8,7 @@ function App() {
     <>
     <Header name="Online Store"/>
     <CarouselContainer/>
-    <SingleItem/>
+  
     </>
     
 

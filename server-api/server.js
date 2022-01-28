@@ -60,9 +60,6 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/cart", (req,res)=>{
-    res.json(cart)
-})
 
 app.get("/items/:itemid", async(req, res) => { // GETS SPECIFIC ITEM
     if (!parseInt(req.params.itemid)) return res.sendStatus(400);
