@@ -1,0 +1,24 @@
+@startuml
+
+title Online Shop - Sequence diagram for Picking a Category
+
+actor User
+
+User -> OnlineShop_UI : click a category
+OnlineShop_UI -> OnlineShop_API : fetch(/category/:id)
+
+Database Shop_Database
+
+OnlineShop_API -> OnlineShop_API : validate id
+
+alt if VALID
+  OnlineShop_API -> Shop_Database :  GET category data with items
+  Shop_Database --> OnlineShop_API : return category data with items
+  OnlineShop_API --> OnlineShop_UI : return status and data
+  OnlineShop_UI --> User : display Category Page
+else elseif INVALID
+  OnlineShop_API --> OnlineShop_UI : return error status
+  OnlineShop_UI --> User : display Error Page
+end
+
+@enduml
