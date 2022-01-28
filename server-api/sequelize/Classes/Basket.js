@@ -1,5 +1,5 @@
 const { sequelize, DataTypes, Model } = require('../sequelize_index');
-
+const { Item } = require('./Item');
 
 class Basket extends Model {
     //methods
@@ -16,6 +16,6 @@ Basket.init({
     timestamps: false,
 })
 Basket.hasMany(Item, { as: 'items', foreignKey: 'basket_id' })
-Basket.belongsTo(User, { foreignKey: 'basket_id' })
+Item.belongsTo(Basket, { foreignKey: 'basket_id' })
 
 module.exports = { Basket };
