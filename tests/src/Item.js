@@ -1,12 +1,12 @@
 const { sequelize, DataTypes, Model } = require('../sequelize_index');
-const { Item } = require('./Item');
 
-class Basket extends Model {
+class Item extends Model {
+    
     //methods
 
 }
 
-Basket.init({
+Item.init({
     title: DataTypes.STRING,
     price: DataTypes.DOUBLE,
     image: DataTypes.STRING,
@@ -14,8 +14,6 @@ Basket.init({
 }, {
     sequelize,
     timestamps: false,
-})
-Basket.hasMany(Item, { as: 'items', foreignKey: 'basket_id' })
-Item.belongsTo(Basket, { foreignKey: 'basket_id' })
+});
 
-module.exports = { Basket };
+module.exports = { Item };
