@@ -1,0 +1,24 @@
+@startuml
+
+title Online Shop - Sequence diagram for Viewing an item
+
+actor User
+
+User -> OnlineShop_UI : click an item to view
+OnlineShop_UI -> OnlineShop_API : fetch(/items/:id)
+
+Database Shop_Database
+
+OnlineShop_API -> OnlineShop_API : validate id
+
+alt if VALID
+  OnlineShop_API -> Shop_Database :  GET item's data
+  Shop_Database --> OnlineShop_API : return item's data
+  OnlineShop_API --> OnlineShop_UI : return status and data
+  OnlineShop_UI --> User : display Item Page
+else elseif INVALID
+  OnlineShop_API --> OnlineShop_UI : return error status
+  OnlineShop_UI --> User : display Error Page
+end
+
+@enduml

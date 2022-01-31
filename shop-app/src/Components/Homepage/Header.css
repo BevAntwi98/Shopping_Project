@@ -1,0 +1,39 @@
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     
+ }
+
+.container{
+    width: 100%;
+    
+}
+
+.title1  {
+    text-align: "left";
+    padding: "10px";
+    color: "black";
+}
+
+.links {
+    text-align: "center";
+    padding: "27px";
+    cursor: 'pointer';
+}
+
+.link {
+   text-decoration: 'none';
+   color:'black';
+}
+
+.links:hover{
+    color:'white';
+}
+
+
+.icon {
+    padding: "17px";
+    color: "purple";
+}
+
