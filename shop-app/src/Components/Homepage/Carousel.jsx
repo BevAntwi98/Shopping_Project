@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 
 
@@ -8,18 +8,19 @@ import image2 from "../images/ph2.jpeg"; // Import image
 import image3 from "../images/ph3.jpeg"; // Import image
 
 function CarouselContainer() {
+  const CAROUSEL_INTERVAL = 4000;
 
 
   return (
     <div className="carousel__container">
       <Carousel  fade={true} pause={false} >
-        <Carousel.Item interval={4000}>
+        <Carousel.Item interval={CAROUSEL_INTERVAL}>
           <img className="carousel__image"src={image1} alt="First slide" />
         </Carousel.Item>
-        <Carousel.Item interval={4000}>
+        <Carousel.Item interval={CAROUSEL_INTERVAL}>
           <img className="carousel__image"src={image2} alt="Third slide" />
         </Carousel.Item>
-        <Carousel.Item interval={4000}>
+        <Carousel.Item interval={CAROUSEL_INTERVAL}>
           <img className="carousel__image"src={image3} alt="Third slide" />
         </Carousel.Item>
       </Carousel>

@@ -60,6 +60,10 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/items", async(req, res) => { // GETS ALL ITEMS
+    const items = await Item.findAll();
+    res.json(items);
+});
 
 app.get("/items/:itemid", async(req, res) => { // GETS SPECIFIC ITEM
     if (!parseInt(req.params.itemid)) return res.sendStatus(400);

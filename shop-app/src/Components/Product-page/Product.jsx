@@ -1,35 +1,27 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import Header from "../Homepage/Header";
 
-function Product() {
-    const params = useParams();
-    const [category, setCategoryState] = useState({});
-    const [items, setItemsState] = useState([]);
-    const [isRead, setReadState] = useState(false);
+function Product(props) {
+    const [category, setCategory] = useState({});
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
-        if (!isRead) {
-            fetch(`http://localhost:8080/${params.id}`)
+            fetch(`http://localhost:8080/categories/${props.id}`)
                 .then(res => res.json())
                 .then(res => {
-                    setCategoryState(res);
-                    setItemsState(res.items);
-                    setReadState(true);
+                    setCategory(res);
+                    setItems(res.items);
                 })
                 .catch(error => console.log(error));
-        }
-    });
+    }, [props.id]);
 
     return(
         <>
-        <Header name="Online Store" />
         <div>
             {<h1>{category.name}</h1>}
             {
                 items.map(item => {
                     return(
-                        <div>
+                        <div key={`${category.name}-${item.id}`}>
                             <h2>{item.title}</h2>
                             <img src={item.image} />
                             <p>£{item.price}</p>

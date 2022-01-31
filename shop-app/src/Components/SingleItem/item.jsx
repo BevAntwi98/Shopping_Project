@@ -5,21 +5,15 @@ import { useParams } from "react-router-dom";
 function Item() {
   const params = useParams();
   const [item, setItemState] = useState([]);
-  const [isRead, setReadState] = useState(false);
 
   useEffect(() => {
-    if (!isRead) {
-      fetch(`http://localhost:8080/items/${params.id}`)
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res);
-          setItemState(res);
-          setReadState(true);
-
-        })
-        .catch((error) => console.log(error));
-    }
-  });
+    fetch(`http://localhost:8080/items/${params.id}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setItemState(res);
+      })
+      .catch((error) => console.log(error));
+  }, [params.id]);
 
   return (
       <>

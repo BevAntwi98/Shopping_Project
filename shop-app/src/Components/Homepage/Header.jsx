@@ -34,7 +34,7 @@ function Header(props) {
              <Col sm={3}>   <Link to="/" style={{ textDecoration: 'none' }}><h1 style={title1}  >{props.name}</h1></Link></Col>
                 <Col sm={6} style={links}>
                     <Link to="/products/3" > Electronics      </Link> |
-                    <Link to="/products/2" > Jewellery         </Link> |
+                    <Link to="/products/2" > Jewellery        </Link> |
                     <Link to="/products/1" > Men's Clothing   </Link> |
                     <Link to="/products/4" > Women's Clothing </Link>
                 </Col>
