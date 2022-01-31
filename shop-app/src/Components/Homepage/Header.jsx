@@ -31,7 +31,7 @@ function Header(props) {
     return (
         <Container>
             <Row style={row1}>
-             <Col sm={3}>   <Link to="/" style={{ textDecoration: 'none' }}><h1 style={title1}  >{props.name}</h1></Link></Col>
+             <Col sm={3}>   <Link to="/" style={{ textDecoration: 'none' }}><h1 style={title1} >{props.name}</h1></Link></Col>
                 <Col sm={6} style={links}>
                     <Link to="/products/3" > Electronics      </Link> |
                     <Link to="/products/2" > Jewellery        </Link> |
