@@ -48,6 +48,7 @@ export default function CartPage() {
     //     position: 'fixed',
     // }
     return (
+    
         <Container>
             {/* HEADER ROW */}
             <Row style={row1}>
@@ -99,8 +100,8 @@ export default function CartPage() {
             <Row>
                 <Footer></Footer>
             </Row>
-
         </Container>
+       
     )
 
 

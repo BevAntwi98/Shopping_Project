@@ -12,16 +12,16 @@ function CarouselContainer() {
 
 
   return (
-    <div className="carousel__container">
+    <div className="carousel-container">
       <Carousel  fade={true} pause={false} >
         <Carousel.Item interval={CAROUSEL_INTERVAL}>
-          <img className="carousel__image"src={image1} alt="First slide" />
+          <img className="carousel-image"src={image1} alt="First slide" />
         </Carousel.Item>
         <Carousel.Item interval={CAROUSEL_INTERVAL}>
-          <img className="carousel__image"src={image2} alt="Third slide" />
+          <img className="carousel-image"src={image2} alt="Third slide" />
         </Carousel.Item>
         <Carousel.Item interval={CAROUSEL_INTERVAL}>
-          <img className="carousel__image"src={image3} alt="Third slide" />
+          <img className="carousel-image"src={image3} alt="Third slide" />
         </Carousel.Item>
       </Carousel>
     </div>
