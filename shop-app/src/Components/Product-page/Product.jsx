@@ -8,6 +8,7 @@ import PageItem from 'react-bootstrap/PageItem'
 
 function Product(props) {
     const NUM_ITEMS_SHOW = 4;
+    const [cart, setCart] = useState([]);
     const [category, setCategory] = useState({});
     const [items, setItems] = useState([]);
     const [itemsToShow, setItemsToShow] = useState([]);
@@ -22,6 +23,8 @@ function Product(props) {
                 setItems(res.items);
             })
             .catch(error => console.log(error));
+        setCart([localStorage.getItem('cart-items')]);
+        console.log(localStorage.getItem('cart-items'));
     }, [props.id]);
 
     function handlePageUpdate() {
@@ -46,12 +49,12 @@ function Product(props) {
     let buttons = [];
     for (let n = 1; n <= NUM_ITEMS_SHOW; n++) {
         buttons.push(
-        <Pagination.Item key={n} active={n === active} value={n} onClick={changeActive}>
-            {n}
-        </Pagination.Item>,
+            <Pagination.Item key={n} active={n === active} value={n} onClick={changeActive}>
+                {n}
+            </Pagination.Item>,
         )
     }
-    
+
     function changeActive(event) {
         active++;
     }
@@ -62,6 +65,23 @@ function Product(props) {
         </div>
     );
 
+    let updateCart = [];
+
+    // Adding to cart functionality
+    function handleAddToCart(id) {
+        updateCart = cart;
+        updateCart.push(id);
+
+        setCart(updateCart);
+        localStorage.setItem('cart-items', JSON.stringify(cart));
+        console.log(localStorage.getItem('cart-items'));
+    }
+
+    function clearLocalStorage() {
+        localStorage.clear();
+        console.log(localStorage.getItem('cart-items'));
+    }
+
     return (
         <>
             <div>
@@ -69,7 +89,7 @@ function Product(props) {
                 {
                     items.map(item => {
                         return (
-                            <Row>
+                            <Row id={`item-${item.id}`}>
                                 <Col md={2}>
                                     <Card>
                                         <Card.Img variant="top" height={200} src={item.image} />
@@ -78,19 +98,19 @@ function Product(props) {
                                 <Col md={4}>
                                     <Card>
                                         <Card.Body>
-                                            <Card.Title>{item.title}</Card.Title>
+                                                <Card.Title>{item.title}</Card.Title>
                                             <Card.Text className="fw-bold">£{item.price}</Card.Text>
                                         </Card.Body>
                                         {/* FUNCTIONALITY */}
-                                        <Button variant="primary">Add to Cart</Button>
+                                        <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
                                     </Card>
                                 </Col>
-
                             </Row>
                         )
                     })
                 }
                 {paginationButtons}
+                <button onClick={clearLocalStorage}>Clear Local Storage</button>
             </div>
         </>
     );
