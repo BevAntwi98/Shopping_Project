@@ -20,7 +20,7 @@ function CarouselContainer(){
         <img
           className="d-block w-100"
           src={image2}
-          alt="Third slide"
+          alt="Second slide"
         />
 
       </Carousel.Item>
