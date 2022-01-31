@@ -18,7 +18,7 @@ export default function CartPage() {
 
     return (
         <>
-        {/* <div className='container'>
+         <div className='container'>
             <header></header>
             <h2>SHOPPING CART</h2>
             <div className='product-container'>
@@ -42,7 +42,7 @@ export default function CartPage() {
             </div>
             
             
-        </div>  */}
+        </div>  
          {/* <div className='container'>
             <header></header>
             <h2>SHOPPING CART</h2>
