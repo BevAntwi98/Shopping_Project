@@ -13,7 +13,7 @@ const CardItem = ({items, key}) => {
         <Card.Body>
             <Card.Title>{items.title}</Card.Title>
             <Card.Text>£{items.price}</Card.Text>
-            <Button variant="primary" onClick={() => {navigate('/products/'+items.id)}}>More Information</Button>
+            <Button variant="primary" onClick={() => {navigate('/product/'+items.id)}}>More Information</Button>
             <Button variant="secondary" onClick={() => {console.log("add to basket: ",items.id)}}>Add to Basket</Button>
         </Card.Body>
         </Card>

@@ -1,7 +1,6 @@
 import { Button, Row, Col, Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Footer from '../Homepage/Footer';
-import Header from '../Homepage/Header';
 import CartItem from './CartItems';
 
 export default function CartPage() {
@@ -25,29 +24,27 @@ export default function CartPage() {
         margin: 0,
         top: "80%",
         right: 60,
-
         left: 'auto',
         position: 'fixed',
     }
-    
+
     return (
         <>
-        <Header />
-        <h1 style={{textAlign: "center"}}>Shopping Cart</h1>
-        <Container>
-            {
-                cartItems.map(item => <CartItem title={item.title} image={item.image} price={item.price}/>)
-            }
-            {/* BUTTON ROW */}
-            <Row style={row4} xs="auto">
-                <Col>
-                    <Button>Checkout</Button>
-                </Col>
-            </Row>
-        </Container>
-        <Footer />
-        </>
-    )
+            <h1 style={{ textAlign: "center" }}>Shopping Cart</h1>
+            <Container>
+                {
+                    cartItems.map(item => <CartItem title={item.title} image={item.image} price={item.price} />)
+                }
+                
+            </Container>
+            <Container>
+                <Row style={row4} xs="auto">
+                    <Col>
+                        <Button>Checkout</Button>
+                    </Col>
+                </Row>
+            </Container>
+    </>
 
-
+    );
 }

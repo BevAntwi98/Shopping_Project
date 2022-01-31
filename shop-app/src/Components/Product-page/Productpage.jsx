@@ -6,7 +6,6 @@ function Productpage() {
     const params = useParams();
     return(
         <>
-            <Header name="Online Store" />
             <Product id={`${params.id}`} />
         </>
     )

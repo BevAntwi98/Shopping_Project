@@ -37,7 +37,6 @@ export default function CartItem(props) {
         margin: 0,
         top: "80%",
         right: 60,
-
         left: 'auto',
         position: 'fixed',
     }

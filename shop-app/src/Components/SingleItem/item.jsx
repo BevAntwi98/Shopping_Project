@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Heart } from "react-bootstrap-icons"
 
-
+import '../../Design/SingleItemPage.css'
 function Item() {
   const params = useParams();
   const [item, setItemState] = useState([]);
@@ -28,7 +29,7 @@ function Item() {
             <span>£{item.price}</span>
             <p>{item.description}</p>
           </div>
-          <button className="cart-btn">Add to Cart</button> <i>Heart Icon</i>
+          <button className="cart-btn">Add to Cart</button> <i className='icon'> <Heart size={30} /></i>
         </div>
       </div>
       </>

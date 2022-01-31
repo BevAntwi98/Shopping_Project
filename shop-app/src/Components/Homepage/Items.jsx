@@ -2,8 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import CardItem from './CardItem'
-import { CardGroup } from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom'
+
+import {Col, Row } from 'react-bootstrap';
+
 const Items = ({rowCount}) => {
     
     
@@ -38,22 +40,21 @@ const Items = ({rowCount}) => {
       } else if (loading) {
         return <div>Loading...</div>;
       } else {
-       
-            
+
             for (let i in items)
             {
                 if (i%rowCount===0 && i!==0){
-                    content.push(<CardRow cards={items.slice(lastRowIndex, rowCount*rowCounter)}/>);
+                    content.push(<Row ><CardRow cards={items.slice(lastRowIndex, rowCount*rowCounter)}/></Row>);
                     lastRowIndex = rowCounter * rowCount;
-                    rowCounter+=1;
+                    rowCounter+=1; 
                 }
             }
-         return (<div>{content.map(c => (c))}</div>);
+         return (<div className="products">{content.map(c => (c))}</div>);
       }
 };
 
 const CardRow = ({cards}) => {
-  return <div><CardGroup>{cards.map(card => (<CardItem items={card} key={card.id}/>))}</CardGroup></div>;
+  return (cards.map(card => (<Col><CardItem items={card} key={card.id}/></Col>)));
 };
 
 
