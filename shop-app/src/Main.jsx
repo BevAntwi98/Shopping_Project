@@ -14,7 +14,7 @@ import AdminPage from './Components/Admin/AdminPage';
 function Main() {
     return (
         <Router>
-            <Header/>
+            <Header />
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/category/:id" element={<Productpage />} />
@@ -24,7 +24,7 @@ function Main() {
                 <Route path="/login" element={<AdminLogin />}/>
                 <Route path="/admin" element={<AdminPage/>}/>
             </Routes>
-          
+            <Footer />
         </Router>
     );
 }
