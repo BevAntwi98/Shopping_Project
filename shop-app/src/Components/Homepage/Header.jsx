@@ -20,26 +20,37 @@ function Header() {
                 setCategories(res);
             })
             .catch(err => console.log(err));
-    }, [])
+    }, []);
 
+    function handleShowNav() {
+        const menu = document.querySelector("#mobile-menu");
+        const menuLinks = document.querySelector(".nav-menu");
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("active");
+    }
 
 
     return (
         <header className='header-container'>
             <h1>Online Shop</h1>
-            <nav>
-                <Link className='links' to="/">ALL</Link>
+            <nav className="nav-menu">
+                <Link className='nav-links' to="/">ALL</Link>
                 {
                     categories.map(category => {
                         return (
-                            <Link className='links' to={`/category/${category.id}`}>{category.name.toUpperCase()} </Link>
+                            <a className='nav-links' href={`/category/${category.id}`}>{category.name.toUpperCase()} </a>
                         )
                     })
                 }
             </nav>
             <div className='icons'>
-                <i className='icon'><Link to="/cart"><Cart style={{color: 'white'}} size={40} /></Link></i>
-                <i className='icon2'> <Link to="/login"><Lock style={{color: 'white'}} size={40} /></Link></i>
+                <i className='icon'><Link id="cart-icon" className='icon-link' to="/cart"><Cart size={40} /></Link></i>
+                <i className='icon'><Link id="lock-icon" className='icon-link' to="/login"><Lock size={40} /></Link></i>
+                <div class="nav-toggle" id="mobile-menu" onClick={handleShowNav}>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </header>
     )

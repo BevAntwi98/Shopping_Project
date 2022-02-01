@@ -1,5 +1,3 @@
-.grid-container {
-    display: grid;
-    grid-gap: 10px
-
-  }
+.text-center{
+  background-color: lightblue;
+}

@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/Card';
-
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import "../../Design/Product.css"
@@ -15,9 +12,9 @@ function Product(props) {
     const [category, setCategory] = useState({});
     const [items, setItems] = useState([]);
     const [itemsToShow, setItemsToShow] = useState([]);
-    const [firstItem, setFirstItem] = useState(0);
-    const [lastItem, setLastItem] = useState(NUM_ITEMS_SHOW);
-    
+    const [firstIndex, setFirstIndex] = useState(0);
+    const [lastIndex, setLastIndex] = useState(NUM_ITEMS_SHOW);
+    const [active, setActive] = useState(1);
 
     useEffect(() => {
         fetch(`http://localhost:8080/categories/${props.id}`)
@@ -25,49 +22,27 @@ function Product(props) {
             .then(res => {
                 setCategory(res);
                 setItems(res.items);
+                setItemsToShow(res.items.slice(firstIndex, lastIndex));
             })
             .catch(error => console.log(error));
         setCart([localStorage.getItem('cart-items')]);
         console.log(localStorage.getItem('cart-items'));
-    }, [props.id]);
+    }, [props.id, active]);
 
-    function handlePageUpdate() {
-        setItemsToShow(items.slice(firstItem, lastItem));
+    function handlePageUpdate(n) {
+        setActive(n);
+        setFirstIndex((NUM_ITEMS_SHOW * n) - NUM_ITEMS_SHOW);
+        setLastIndex(NUM_ITEMS_SHOW * n)
     }
 
-    function handleShowNextPage() {
-        const newFirstItem = firstItem + NUM_ITEMS_SHOW;
-        const newLastItem = lastItem + NUM_ITEMS_SHOW;
-        setFirstItem(newFirstItem);
-        setLastItem(newLastItem);
-    }
-
-    function handleShowPrevPage() {
-        const newFirstItem = firstItem - NUM_ITEMS_SHOW;
-        const newLastItem = lastItem - NUM_ITEMS_SHOW;
-        setFirstItem(newFirstItem);
-        setLastItem(newLastItem);
-    }
-
-    let active = 1;
     let buttons = [];
-    for (let n = 1; n <= NUM_ITEMS_SHOW; n++) {
+    for (let n = 1; n <= Math.round(items.length / NUM_ITEMS_SHOW); n++) {
         buttons.push(
-            <Pagination.Item key={n} active={n === active} value={n} onClick={changeActive}>
+            <Pagination.Item key={n} active={n === active} onClick={() => handlePageUpdate(n)}>
                 {n}
             </Pagination.Item>,
         )
     }
-
-    function changeActive(event) {
-        active++;
-    }
-
-    const paginationButtons = (
-        <div>
-            <Pagination>{buttons}</Pagination>
-        </div>
-    );
 
     let updateCart = [];
 
@@ -97,12 +72,12 @@ function Product(props) {
                     items.map(item => {
                         return (
 
-                            <CardDeck style={{ display: 'inline-block', width: '20em', justifyContent: 'center', margin: '0.6rem', marginTop: '7%', marginLeft: '40px' }}>
+                            <CardDeck style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
-                                <Card style={{ height: '400px' }}  >
+                                <Card style={{ height: '390px' }}  >
                                     <Card.Img variant="top" height={200} src={item.image} />
                                     <Card.Body>
-                                        <Card.Title>{item.title}</Card.Title><br />
+                                        <Card.Title style={{fontSize: '1em'}}>{item.title}</Card.Title><br />
 
                                         <Card.Text className="fw-bold" style={{ textAlign: 'center' }}>£{item.price}</Card.Text>
 

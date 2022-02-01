@@ -1,9 +1,23 @@
+.container{
+   align-items: center;
+}
+
 .title{
     text-align: center;
     font-size: xx-large;
+    background-color: lightcoral;
 }
 .select{
     font-size: large;
     text-align: center;
     padding: 20px;
+}
+.admin-catagories{
+    align-items: center;
+}
+.button-container{
+    padding: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
