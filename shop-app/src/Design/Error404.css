@@ -1,0 +1,14 @@
+.title{
+    text-align: center;
+    font-size: 130px;
+}
+
+.error_message{
+    color: black;
+    padding: 70px 0;
+    text-align: center;
+}
+.suggestions{
+    text-align: center;
+    padding: 150px;
+}

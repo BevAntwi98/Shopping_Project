@@ -6,6 +6,8 @@ import Item from './Components/SingleItem/item';
 import Error404 from './Components/ErrorPages/Error404'
 import Header from './Components/Homepage/Header';
 import Footer from './Components/Homepage/Footer';
+import AdminLogin from './Components/Admin/Login';
+import AdminPage from './Components/Admin/AdminPage';
 
 
 
@@ -19,8 +21,10 @@ function Main() {
                 <Route path="/cart" element={<CartPage/> } />
                 <Route path="/product/:id" element={<Item />} /> 
                 <Route path="*" element={<Error404/>}/>
+                <Route path="/login" element={<AdminLogin />}/>
+                <Route path="/admin" element={<AdminPage/>}/>
             </Routes>
-            <Footer/>
+          
         </Router>
     );
 }
