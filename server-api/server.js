@@ -101,7 +101,7 @@ app.post("/categories", [ // ADDS A CATEGORY
 
 app.post("/categories/:id/items", [ // ADDS AN ITEM WITH A CATEGORY
     check('title').trim().notEmpty(),
-    check('price').trim().isCurrency({allow_negatives: false}),
+    check('price').trim().isFloat(),
     check('image').trim().isURL().exists(),
     check('description').trim().notEmpty()
     ], async(req, res) => {
@@ -133,7 +133,7 @@ app.patch("/categories/:id", [ // UPDATES CATEGORY NAME
 
 app.patch("/items/:itemid", [ // UPDATES ITEM VALUES
     check('title').trim().notEmpty(),
-    check('price').trim().isCurrency({allow_negatives: false}),
+    check('price').trim().isFloat(),
     check('image').trim().isURL().exists(),
     check('description').trim().notEmpty()
     ], async(req, res) => {
