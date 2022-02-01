@@ -1,0 +1,28 @@
+
+.header-container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #444;
+}
+
+.header-container nav {
+    display: flex;
+    justify-content: space-between;
+    width: 60rem;
+}
+
+.header-container h1 {
+    color: #fff;
+    margin-left: 20px;
+}
+
+.links {
+    color: #fff;
+    text-decoration:none;
+}
+
+.icons {
+    margin-right: 20px;
+}
