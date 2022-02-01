@@ -1,0 +1,9 @@
+.cart-pg-container {
+    min-height: calc(100vh - 125px);
+}
+
+.cart-pg-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}

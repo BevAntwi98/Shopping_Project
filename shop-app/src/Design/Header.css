@@ -10,7 +10,7 @@
 .header-container nav {
     display: flex;
     justify-content: space-between;
-    width: 60rem;
+    width: 70rem;
 }
 
 .header-container h1 {
@@ -44,6 +44,16 @@
 #mobile-menu {
     display: none;
     width: fit-content;
+}
+
+@media screen and (max-width: 1500px) {
+    .header-container nav {
+        width: 60rem;
+    }
+
+    .nav-links {
+        font-size: 0.8rem;
+    }
 }
 
 @media screen and (max-width: 1325px) {
