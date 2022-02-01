@@ -1,8 +1,9 @@
 // import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
+import Product from "../Product-page/Product";
 import { Cart, Lock } from "react-bootstrap-icons"
-
+import { CartPlusFill } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import "../../Design/Header.css";
 import { useEffect, useState } from 'react';
@@ -27,6 +28,7 @@ function Header() {
         menu.classList.toggle("is-active");
         menuLinks.classList.toggle("active");
     }
+
 
     return (
         <header className='header-container'>

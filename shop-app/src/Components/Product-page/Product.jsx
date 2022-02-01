@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/Card';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
-import PageItem from 'react-bootstrap/PageItem';
-
-import '../../Design/Category.css';
+import "../../Design/Product.css"
+import PageItem from 'react-bootstrap/PageItem'
 
 function Product(props) {
     const NUM_ITEMS_SHOW = 4;
@@ -63,36 +64,53 @@ function Product(props) {
         console.log(localStorage.getItem('cart-items'));
     }
 
+ 
+   
+
     return (
-        <div className="category-content">
-            <h1 className="text-center">{category.name}</h1>
-            {
-                itemsToShow.map(item => {
-                    return (
-                        <Row id={`item-${item.id}`}>
-                            <Col md={2}>
-                                <Card>
+        <>
+            <div>
+                {<h1 className="text-center">{category.name}</h1>}
+                {
+                    items.map(item => {
+                        return (
+
+                            <CardDeck style={{ display: 'inline-block', width: '20em', justifyContent: 'center', margin: '0.6rem', marginTop: '7%', marginLeft: '40px' }}>
+
+                                <Card style={{ height: '400px' }}  >
                                     <Card.Img variant="top" height={200} src={item.image} />
-                                </Card>
-                            </Col>
-                            <Col md={4}>
-                                <Card>
                                     <Card.Body>
-                                            <Card.Title>{item.title}</Card.Title>
-                                        <Card.Text className="fw-bold">£{item.price}</Card.Text>
+                                        <Card.Title>{item.title}</Card.Title><br />
+
+                                        <Card.Text className="fw-bold" style={{ textAlign: 'center' }}>£{item.price}</Card.Text>
+
                                     </Card.Body>
                                     {/* FUNCTIONALITY */}
+
                                     <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
+
+
                                 </Card>
-                            </Col>
-                        </Row>
-                    )
-                })
-            }
-            <Pagination className="pagination-btn">{buttons}</Pagination>
-            <button onClick={clearLocalStorage}>Clear Local Storage</button>
-        </div>
+                            </CardDeck>
+                        )
+                    })
+                }
+                {/* {paginationButtons}
+                <button onClick={clearLocalStorage}>Clear Local Storage</button> */}
+            </div>
+        </>
     );
 }
 
 export default Product;
+
+
+// <Card >
+// <Card.Img variant="top" height={200} src={item.image} />
+// <Card.Body>
+//     <Card.Title>{item.title}</Card.Title>
+//     <Card.Text className="fw-bold">£{item.price}</Card.Text>
+// </Card.Body>
+// {/* FUNCTIONALITY */}
+// <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
+// </Card>

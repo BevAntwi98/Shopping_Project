@@ -29,7 +29,7 @@ function Item() {
             <span>£{item.price}</span>
             <p>{item.description}</p>
           </div>
-          <button className="cart-btn">Add to Cart</button> <i className='icon'> <Heart size={30} /></i>
+          <button className="cart-btn">Add to Cart</button><i className='icon'> <Heart size={35} /></i>
         </div>
       </div>
       </>
