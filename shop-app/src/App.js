@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 function App() {
-  const [rowCount,useChangeRow] = useState(2);
+  const [rowCount,useChangeRow] = useState(3);
 
   const SetRow = (noOfRows) => {
     useChangeRow(noOfRows);

@@ -8,20 +8,14 @@ import { ConeStriped } from 'react-bootstrap-icons';
 
 function AdminLogin() {
 
-
     function Success() {
-      
+        window.location = ('http://localhost:3000/admin');
 
-     
-            window.location = ('http://localhost:3000/admin')
-       
     }
-
-
 
     return (
         <div>
-            <h2 className='header'><header><i class="bi bi-cone-striped"><ConeStriped/></i> Admins Only <i class="bi bi-cone-striped"><ConeStriped/></i></header></h2>
+            <h2 className='header'><header><i class="bi bi-cone-striped"><ConeStriped /></i> Admins Only <i class="bi bi-cone-striped"><ConeStriped /></i></header></h2>
             <Form style={{ padding: '100px' }}>
                 <Form.Group as={Row} className="mb-3" controlId="formGroupPassword">
                     <Col sm={5}>

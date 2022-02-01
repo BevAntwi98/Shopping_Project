@@ -13,8 +13,8 @@ function AdminPage() {
                 <Container  style={{textAlign: 'center'}}>
                     <Row> {/* <h5 className="admin-catagories">Sale</h5> */}
                         <Col>
-                        <h2 style={{textAlign: 'center'}}>Sale</h2>
-                            <Button className="button" variant="outline-info"> Get All Sale Items</Button>{' '}
+                        <h2 className="admin-heading" >Sale</h2>
+                            <Button className="button" variant="outline-info"> View All Sale Items</Button>{' '}
                             <Button className="button" variant="outline-info"> Add Sale Item</Button>{' '}
                             <Button className="button" variant="outline-danger"> Delete All Sale Items</Button>{' '}
                             <Button className="button" variant="outline-warning"> Update a Sale Item</Button>{' '}
@@ -23,8 +23,8 @@ function AdminPage() {
                    
                     <Row>
                         <Col>
-                        <h2  style={{textAlign: 'center'}}>Category</h2>
-                            <Button className="button" variant="outline-info"> Get All Categories</Button>{' '}
+                        <h2 className="admin-heading">Category</h2>
+                            <Button className="button" variant="outline-info"> View All Categories</Button>{' '}
                             <Button className="button" variant="outline-info"> Add Category</Button>{' '}
                             <Button className="button" variant="outline-danger"> Delete a Category</Button>{' '}
                             <Button className="button" variant="outline-warning"> Update a Category</Button>{' '}

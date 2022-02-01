@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/Card';
@@ -74,17 +75,17 @@ function Product(props) {
 
                             <CardDeck style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
-                                <Card style={{ height: '390px' }}  >
-                                    <Card.Img variant="top" height={200} src={item.image} />
+                                <Card style={{ height: '410px' }}  >
+                                    <Card.Img  height={'200px'} style={{width: '200px', alignSelf: 'center'}} src={item.image} />
                                     <Card.Body>
-                                        <Card.Title style={{fontSize: '1em'}}>{item.title}</Card.Title><br />
+                                        <Card.Title style={{fontSize: '15px', textAlign: 'center'}}>{item.title}</Card.Title><br />
 
-                                        <Card.Text className="fw-bold" style={{ textAlign: 'center' }}>£{item.price}</Card.Text>
+                                        <Card.Text className='cardPrice'>£{item.price}</Card.Text>
 
                                     </Card.Body>
                                     {/* FUNCTIONALITY */}
 
-                                    <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
+                                    <Button className='Btn' onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
 
 
                                 </Card>
@@ -100,14 +101,3 @@ function Product(props) {
 }
 
 export default Product;
-
-
-// <Card >
-// <Card.Img variant="top" height={200} src={item.image} />
-// <Card.Body>
-//     <Card.Title>{item.title}</Card.Title>
-//     <Card.Text className="fw-bold">£{item.price}</Card.Text>
-// </Card.Body>
-// {/* FUNCTIONALITY */}
-// <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
-// </Card>

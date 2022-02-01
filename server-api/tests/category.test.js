@@ -1,6 +1,6 @@
-const { sequelize } = require("../sequelize_index");
-const { Category } = require("../src/Category");
-const { Item } = require("../src/Item");
+const { sequelize } = require("../sequelize/sequelize_index");
+const { Category } = require("../sequelize/Classes/Category");
+const { Item } = require("../sequelize/Classes/Item");
 
 describe('Category', () => {
     beforeAll(async () => {
@@ -14,6 +14,11 @@ describe('Category', () => {
         expect(items[0].title).toBe("Fjallraven")
 
     })
+    test('can create Category', async()=>{
+        const childrenCategory= await Category.create({name: "Children's Clothing"})
+        expect(childrenCategory.name).toBe("Children's Clothing")
+    })
+    
 })
 
 // getItems() not working 

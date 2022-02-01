@@ -1,3 +1,25 @@
-.text-center{
+.text-center {
   background-color: lightblue;
+  margin-bottom: 3%;
+}
+
+.cardImg {
+  height: 200px;
+  width: 200px;
+}
+
+.cardPrice {
+  text-align: center;
+  font-size: 22px;
+}
+
+.Btn {
+  background-color: RGB(68, 68, 68) !important;
+  color: white !important;
+  border: none;
+  margin: 8px;
+}
+
+.Btn:hover {
+  color: #fd7e14 !important;
 }
