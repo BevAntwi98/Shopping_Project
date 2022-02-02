@@ -25,3 +25,6 @@
     text-align: center;
     padding: 10px;
 }
+.title-container{
+    min-height: calc(100vh - 125px);
+}

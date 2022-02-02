@@ -21,16 +21,16 @@ function Product(props) {
         fetch(`http://localhost:8080/categories/${props.id}`)
             .then(res => res.json())
             .then(res => {
-                let newItems = res.items;
-                const length = res.items.length
-                for (let j = 0; j < 10; j++) {
-                    for (let i = 0; i < length; i++) {
-                        newItems.push(res.items[i]);
-                    }
-                }
+                let responseItems = res.items;
+                // const length = responseItems.length
+                // for (let j = 0; j < 10; j++) {
+                //     for (let i = 0; i < length; i++) {
+                //         responseItems.push(res.items[i]);
+                //     }
+                // }
                 setCategory(res);
-                setItems(res.items);
-                setItemsToShow(newItems.slice(firstIndex, lastIndex));
+                setItems(responseItems);
+                setItemsToShow(responseItems.slice(firstIndex, lastIndex));
             })
             .catch(error => console.log(error));
         setCart([localStorage.getItem('cart-items')]);
@@ -82,15 +82,14 @@ function Product(props) {
             {
                 itemsToShow.map(item => {
                     return (
+                        
                         <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
                             <Card style={{ height: '410px' }}>
                                 <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
                                 <Card.Body>
                                     <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{item.title}</Card.Title><br />
-
                                     <Card.Text className='cardPrice'>£{item.price}</Card.Text>
-
                                 </Card.Body>
                                 {/* FUNCTIONALITY */}
 

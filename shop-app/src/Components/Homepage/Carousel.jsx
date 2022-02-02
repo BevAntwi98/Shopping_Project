@@ -6,6 +6,7 @@ import '../../Design/Carousel.css';
 import image1 from "../images/ph1.jpeg"; // Import image
 import image2 from "../images/ph2.jpeg"; // Import image
 import image3 from "../images/ph3.jpeg"; // Import image
+import image4 from "../images/sale.jpg"; 
 
 function CarouselContainer() {
   const CAROUSEL_INTERVAL = 4000;
@@ -22,6 +23,9 @@ function CarouselContainer() {
         </Carousel.Item>
         <Carousel.Item interval={CAROUSEL_INTERVAL}>
           <img className="carousel-image"src={image3} alt="Third slide" />
+        </Carousel.Item>
+        <Carousel.Item interval={CAROUSEL_INTERVAL}>
+          <img className="carousel-image"src={image4} alt="Fourth slide" />
         </Carousel.Item>
       </Carousel>
     </div>

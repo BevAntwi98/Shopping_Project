@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
 import "../../Design/Login.css"
 import { ConeStriped } from 'react-bootstrap-icons';
-
+import Stack from 'react-bootstrap/Stack';
 
 function AdminLogin() {
 
@@ -15,23 +15,23 @@ function AdminLogin() {
 
     return (
         <div>
-            <h2 className='header'><header><i class="bi bi-cone-striped"><ConeStriped /></i> Admins Only <i class="bi bi-cone-striped"><ConeStriped /></i></header></h2>
-            <Form style={{ padding: '100px' }}>
-                <Form.Group as={Row} className="mb-3" controlId="formGroupPassword">
-                    <Col sm={5}>
-                        <Form.Control placeholder="Username" />
-                    </Col>
-                    <Col sm={5}>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Col>
-                    <Col sm={2}>
-                        <Button variant="outline-success" onClick={() => Success()} className="mb-2">
-                            Submit
-                        </Button>
-                    </Col>
-                </Form.Group>
+            <h2 className='header'><header><i className="bi bi-cone-striped"><ConeStriped /></i> Admins Only <i class="bi bi-cone-striped"><ConeStriped /></i></header></h2>
+            <Stack>
+                <Form style={{ padding: '100px' }}>
+                    <Form.Group as={Row} className="login" controlId="formGroupPassword">
+                        <Col sm={5}>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control placeholder="Username" />
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" />
+                            <Button variant="outline-success" onClick={() => Success()} className="mb-2">
+                                Submit
+                            </Button>
+                        </Col>
+                    </Form.Group>
 
-            </Form>
+                </Form>
+            </Stack>
         </div>
     )
 }

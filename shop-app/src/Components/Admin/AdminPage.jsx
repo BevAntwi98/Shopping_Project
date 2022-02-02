@@ -14,10 +14,10 @@ function AdminPage() {
                     <Row> {/* <h5 className="admin-catagories">Sale</h5> */}
                         <Col>
                         <h2 className="admin-heading" >Sale</h2>
-                            <Button className="button" variant="outline-info"> View All Sale Items</Button>{' '}
-                            <Button className="button" variant="outline-info"> Add Sale Item</Button>{' '}
-                            <Button className="button" variant="outline-danger"> Delete All Sale Items</Button>{' '}
-                            <Button className="button" variant="outline-warning"> Update a Sale Item</Button>{' '}
+                            <Button className="button" variant="outline-info"> View All Items</Button>{' '}
+                            <Button className="button" variant="outline-info"> Add Item</Button>{' '}
+                            <Button className="button" variant="outline-danger"> Delete an Item</Button>{' '}
+                            <Button className="button" variant="outline-warning"> Update an Item</Button>{' '}
                         </Col>
                     </Row> <br/>
                    
