@@ -1,5 +1,5 @@
-const { sequelize } = require("../sequelize/sequelize_index");
-const { Item } = require("../sequelize/Classes/Item");
+const { sequelize } = require("../../sequelize/sequelize_index");
+const { Item } = require("../../sequelize/Classes/Item");
 
 describe('Item', () => {
     beforeAll(async () => {
