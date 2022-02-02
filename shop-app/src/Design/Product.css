@@ -22,4 +22,24 @@
 
 .Btn:hover {
   color: #fd7e14 !important;
+
+}
+
+.category-container {
+    position: relative;
+    min-height: calc(100vh - 125px);
+}
+
+.item-container {
+    display: inline-block !important; 
+    width: 20em; 
+    justify-content: center; 
+    margin: 0.6rem; 
+    margin-top: 7%; 
+    margin-left: 40px;
+}
+
+.pg-btn-container {
+    width: fit-content;
+    margin: 0 auto;
 }

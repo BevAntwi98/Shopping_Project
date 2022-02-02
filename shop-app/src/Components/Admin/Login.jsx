@@ -25,7 +25,7 @@ function AdminLogin() {
                         <Form.Control type="password" placeholder="Password" />
                     </Col>
                     <Col sm={2}>
-                        <Button value onClick={() => Success()} className="mb-2">
+                        <Button variant="outline-success" onClick={() => Success()} className="mb-2">
                             Submit
                         </Button>
                     </Col>

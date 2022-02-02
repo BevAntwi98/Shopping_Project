@@ -2,7 +2,7 @@ import React from 'react';
 import "../../Design/Error404.css"
 import { DashCircleFill } from "react-bootstrap-icons"
 import Header from '../Homepage/Header.jsx';
-import error from "../images/error.png"; // Import image
+import error from "../images/404.png"; // Import image
 
 
 const Error404 = () => {
