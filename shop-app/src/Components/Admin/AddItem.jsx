@@ -20,15 +20,16 @@ function AddItemToPage() {
 
     function handleInputChange(event) {
         const { name, value } = event.target;
+        console.log(name, value);
         let newInputs = inputs;
         newInputs[name] = value;
         setInputs(newInputs);
     }
 
     function checkIfURL(link) {
-        let url = link
         try {
-            url = new URL();
+            let url;
+            url = new URL(link);
         } catch (error) {
             console.log(error);
             return false;
@@ -37,22 +38,25 @@ function AddItemToPage() {
         return true;
     }
 
+    function checkIfPrice(price) {
+        return !isNaN(price);
+    }
+
+    function checkIfCategory(id) {
+        return !(id < 1);
+    }
+
     function handleSubmitForm() {
         const title = inputs.iTitle;
         const price = parseFloat(inputs.iPrice);
-        if (!price) {
-            alert("Price is not a valid price");
-            return;
-        }
         const description = inputs.iDesc;
-        const id = inputs.iCategory;
-        let image; 
-        if (checkIfURL(inputs.iImage)) {
-            image = inputs.iImage;
-        } else {
-            alert("Image is not a valid URL");
-            return;
-        }
+        const categoryId = inputs.iCategory;
+        const image = inputs.iImage;
+
+        //client-side validations
+        if (!checkIfCategory(categoryId)) return alert("Category is not a valid category");
+        if (!checkIfPrice(price)) return alert("Price is not a valid price");
+        if (!checkIfURL(image)) return alert("Image is not a valid URL");
 
         const newItem = {
             title,
@@ -60,9 +64,8 @@ function AddItemToPage() {
             image,
             description,
         }
-        console.log(newItem);
 
-        axios.post(`http://localhost:8080/categories/${id}/items`, newItem)
+        axios.post(`http://localhost:8080/categories/${categoryId}/items`, newItem)
         .then(() => {
             alert('Item has been created');
             window.location.href = "/view-all";
@@ -72,15 +75,16 @@ function AddItemToPage() {
 
     return (
         <div className="addItemContainer">
-            <div className='form'>
+            <form className='form'>
                 <h2 className='addItemTitle'>ADD ITEM</h2>
                 <div className="each">
                     <select 
                         className="selectOption" 
                         name="iCategory"
+                        required
                         onChange={handleInputChange}
                     >
-                        <option>Select a Category</option>
+                        <option value={0}>Select a Category</option>
                         {
                             categories.map(category => {
                                 return (
@@ -96,6 +100,7 @@ function AddItemToPage() {
                     <input type="text"
                         name="iTitle"
                         placeholder='Name'
+                        required
                         onChange={handleInputChange}
                     />
                 </div>
@@ -105,6 +110,7 @@ function AddItemToPage() {
                     <input
                         name="iPrice"
                         placeholder='Price'
+                        required
                         onChange={handleInputChange}
                     />
                 </div>
@@ -115,6 +121,7 @@ function AddItemToPage() {
                         name="iImage"
                         type="url"
                         placeholder='Image URL'
+                        required
                         onChange={handleInputChange}
                     />
                 </div>
@@ -124,12 +131,13 @@ function AddItemToPage() {
                         name="iDesc"
                         type="text"
                         placeholder='Description'
+                        required
                         onChange={handleInputChange}
                     />
                 </div>
 
                 <button type="submit" className='submitBtn' onClick={handleSubmitForm}>Submit</button>
-            </div>
+            </form>
 
         </div>
     )

@@ -9,7 +9,7 @@ function DisplayAll(){
     const [items, setItems] = useState([]);
     const [viewItems, setViewItems] = useState([]);
     const [toggle, setToggle] = useState(true);
-    const [inputs, setInputs] = useState({itemTitle: "", itemImage: "", itemPrice: 0, itemDescription: "",});
+    const [inputs, setInputs] = useState({itemTitle: "", itemImage: "", itemPrice: 0, itemDescription: "", itemCategory: ""});
     
     useEffect(()=>{
         fetch('http://localhost:8080/items')
@@ -21,8 +21,9 @@ function DisplayAll(){
     }, []);
 
     function handleInputChange(event) {
+        const { name, value } = event.target;
         let newInputs = inputs;
-        newInputs[event.target.name] = event.target.value;
+        newInputs[name] = value;
         setInputs(newInputs);
     }
 
