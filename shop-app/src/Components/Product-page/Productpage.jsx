@@ -1,5 +1,4 @@
 import Product from "./Product";
-import Header from "../Homepage/Header";
 import { useParams } from 'react-router-dom';
 
 function Productpage() {

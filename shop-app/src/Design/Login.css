@@ -1,0 +1,14 @@
+.header{
+    text-align: center;
+    padding: 20px;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,30 @@
+.container{
+   align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-size: xx-large;
+    background-color: lightcoral;
+}
+.select{
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+}
+.admin-catagories{
+    align-items: center;
+}
+.button-container{
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.admin-heading{
+    text-align: center;
+    padding: 10px;
+}
+.title-container{
+    min-height: calc(100vh - 125px);
+}

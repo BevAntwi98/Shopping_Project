@@ -1,7 +1,6 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
@@ -67,7 +66,7 @@ export default function CartItem(props) {
                 </Col>
                 <Col md={5}>
                     <Card>
-                        <Card.Body>
+                        <Card.Body >
                             <Card.Title style={{fontSize: "1rem"}}>{props.title}</Card.Title>
                             <Card.Text style={{fontSize: "1.5rem", fontWeight: "600"}}>£{props.price}</Card.Text>
                             <div style={{border: "1px solid black", width: "25px", textAlign: "center", borderRadius: "5px", marginBottom: "5px"}}>{counter}</div>
