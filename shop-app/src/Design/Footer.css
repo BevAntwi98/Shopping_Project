@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-    width: 18rem;
+    width: 17rem;
     margin-right: 10px;
 }
 
@@ -37,6 +37,9 @@
 }
 
 @media screen and (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+    }
     .footer-container div{
         font-size: 1rem;
     }
@@ -47,5 +50,6 @@
 
     .footer-container svg{
         width: 1rem;
+        
     }
 }

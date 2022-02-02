@@ -32,7 +32,7 @@ function Header() {
 
     return (
         <header className='header-container'>
-            <h1>Online Shop</h1>
+            <h1>Online Store</h1>
             <nav className="nav-menu">
                 <Link className='nav-links' to="/">ALL</Link>
                 {
