@@ -58,9 +58,9 @@ export default function CartItem(props) {
     return (
         <>
             {/* ITMES DISPLAY ROW */}
-            <Row style={row3}>
+            <Row data-testid='cart-1' style={row3}>
                 <Col md={4}>
-                    <Card>
+                    <Card data-testid={`${props.id}`}>
                         <Card.Img variant="top" height={180}  src={props.image} />
                     </Card>
                 </Col>

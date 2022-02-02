@@ -1,55 +1,63 @@
- .products{
-  max-width:1100px ;
-  margin: auto; 
-} 
+.products {
+  max-width: 1100px;
+  margin: auto;
+}
 
-.eachCard{
-    min-height: 450px;
-    cursor: pointer;
-    flex-direction: column;  
-    border: 1px solid lightgray;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    padding: 10px;
-} 
+.eachCard {
+  min-height: 450px;
+  cursor: pointer;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 10px;
+}
 
-.cardImage{
-    align-self: center;
-    height: 200px;
-    width: 200px;
-} 
+.cardImage {
+  align-self: center;
+  height: 200px;
+  width: 200px;
+}
 
 .cardTitle {
-    font-size: 15px;  
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 
-.cardPrice{
-    font-size: 22px;
+.cardTitle:hover, .cardPrice:hover{
+    color: black;
 }
 
-.cartBtn{
-    background-color: RGB(68, 68, 68);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-} 
-.cartBtn:hover{
-   color:#fd7e14 ; 
+.cardPrice {
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+}
+
+.cartBtn {
+  background-color: RGB(68, 68, 68);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.cartBtn:hover {
+  color: #fd7e14;
 }
 
 .btn-primary {
-
-    /* USE !IMPORTANT TO OVERWRITE BOOTSTRAP. Please change if you find a better way  */
-    background-color:transparent !important;
-    border: none !important;
-    float: right ;
-    color: black !important;
+  /* USE !IMPORTANT TO OVERWRITE BOOTSTRAP. Please change if you find a better way  */
+  background-color: transparent !important;
+  border: none !important;
+  float: right;
+  color: black !important;
 }
 
 @media screen and (max-width: 950px) {
-.btn-primary{
+  .btn-primary {
     display: none !important;
-}
+  }
 }

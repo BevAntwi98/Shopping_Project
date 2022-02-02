@@ -1,39 +1,18 @@
 import React from 'react';
-import { Card, Button, Row } from 'react-bootstrap';
-import { Link, useNavigate} from 'react-router-dom'
+
 
 import '../../Design/HomepageCards.css'
 
-const CardItem = ({items, key}) => {
-
-    const navigate = useNavigate();
+const CardItem = ({items}) => {
   return(
-   
-        
-        <figure className="eachCard">
-        <img className='cardImage' src={items.image}  alt={items.description} onClick={() => {navigate('/product/'+items.id)}}/>
+        <figure className="eachCard" data-testid='card-1'>
+          <a className='cardImage' href={`/product/${items.id}`}><img className='cardImage' src={items.image} alt={items.description} /></a>
         <figcaption>
-          <div onClick={() => {navigate('/product/'+items.id)}}><h2 className="cardTitle" >{items.title}</h2></div>
-          <div className="cardPrice" onClick={() => {navigate('/product/'+items.id)}}>£{items.price}</div>
+          <a className="cardTitle" href={`/product/${items.id}`}><p>{items.title}</p></a>
+          <a className="cardPrice" href={`/product/${items.id}`}>£{items.price}</a>
         </figcaption>
           <button className='cartBtn' onClick={() => {console.log("add to basket: ",items.id)}}>Add to Cart</button>
-
           </figure>
-
-      
-   
-
-    // <div  className="cardContainer">
-    //   <Card className='card-body text-dark' key={key} border="light" style={{ width: '18rem' }}>
-    //     <Card.Img className='card-image' variant="top" src={items.image}onClick={() => {navigate('/product/'+items.id)}}/>
-    //     <Card.Body>
-    //         <Card.Title className='card-title' onClick={() => {navigate('/product/'+items.id)}}>{items.title}</Card.Title>
-    //         <Card.Text  onClick={() => {navigate('/product/'+items.id)}}>£{items.price}</Card.Text>
-    //         <Button className='btn ' variant="primary" onClick={() => {console.log("add to basket: ",items.id)}}>Add to Basket</Button>
-    //     </Card.Body>
-    //     </Card>
-    // </div>
-        
         
   );
 };
