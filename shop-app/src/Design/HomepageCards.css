@@ -47,3 +47,9 @@
     float: right ;
     color: black !important;
 }
+
+@media screen and (max-width: 950px) {
+.btn-primary{
+    display: none !important;
+}
+}
