@@ -27,7 +27,7 @@ function Header() {
 
     return (
         <header className='header-container'>
-            <Link className='nav-links' to='/'><h1>Online Store</h1></Link>
+            <Link className='nav-links' to='/'><h1>Tutto</h1></Link>
             <nav className="nav-menu">
                 <Link className='nav-links' to="/">ALL</Link>
                 {
