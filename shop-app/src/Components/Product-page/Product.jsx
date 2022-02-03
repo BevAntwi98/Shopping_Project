@@ -5,7 +5,9 @@ import CardDeck from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import "../../Design/Product.css";
+
 import PageItem from 'react-bootstrap/PageItem'
+
 
 function Product(props) {
     const NUM_ITEMS_SHOW = 10;
@@ -77,29 +79,47 @@ function Product(props) {
     return (
 
 
-        <div className="category-container">
-            <h1 className="text-center">{category.name}</h1>
+        <div className="categoryContainer">
+            <div className="categoryTitle">
+                <h1 className="text-center">{category.name}</h1>
+            </div>
+            <div className="productCards">
             {
                 itemsToShow.map(item => {
                     return (
+                       
+                    <figure className="eachProductCard" data-testid='card-1'>
+                        <a className='productCardImage' href={`/product/${item.id}`}><img className='productCardImage' src={item.image} alt={item.description} /></a>
+                      <figcaption>
+                        <a className="productCardTitle" href={`/product/${item.id}`}><p>{item.title}</p></a>
+                        <a className="productCardPrice" href={`/product/${item.id}`}>£{item.price}</a>
+                      </figcaption>
+                        <button className='productCartBtn' onClick={() => {console.log("add to basket: ",item.id)}}>Add to Cart</button>
+                        </figure>  
+                     
+                            
+                        // <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
+
+                        //     <Card style={{ height: '410px' }}>
+                        //         <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
+                        //         <Card.Body>
+                        //             <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{item.title}</Card.Title><br />
+                        //             <Card.Text className='cardPrice'>£{item.price}</Card.Text>
+                        //         </Card.Body>
+                        //         {/* FUNCTIONALITY */}
+
+                        //         <Button className='Btn' onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
+                        //     </Card>
+                        // </CardDeck>
                         
-                        <CardDeck  className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
-
-                            <Card style={{ height: '410px' }}>
-                                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
-                                <Card.Body>
-                                    <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{item.title}</Card.Title><br />
-                                    <Card.Text className='cardPrice'>£{item.price}</Card.Text>
-                                </Card.Body>
-                                {/* FUNCTIONALITY */}
-
-                                <Button className='Btn' onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
-                            </Card>
-                        </CardDeck>
                     )
                 })
             }
+            </div>
+            
+            <div className="pagination">
             <Pagination className="pg-btn-container">{buttons}</Pagination>
+            </div>
             {/* <button onClick={clearLocalStorage}>Clear Local Storage</button> */}
         </div>
     );

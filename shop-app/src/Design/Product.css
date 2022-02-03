@@ -1,31 +1,5 @@
-.text-center {
-  background-color: lightblue;
-  margin-bottom: 3%;
-}
 
-.cardImg {
-  height: 200px;
-  width: 200px;
-}
-
-.cardPrice {
-  text-align: center;
-  font-size: 22px;
-}
-
-.Btn {
-  background-color: RGB(68, 68, 68) !important;
-  color: white !important;
-  border: none;
-  margin: 8px;
-}
-
-.Btn:hover {
-  color: #fd7e14 !important;
-
-}
-
-.category-container {
+.categoryContainer {
     position: relative;
     min-height: calc(100vh - 125px);
 }
@@ -42,4 +16,77 @@
 .pg-btn-container {
     width: fit-content;
     margin: 0 auto;
+    margin-top: 30px;
+}  
+
+.productCards {
+ max-width: 1300px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; 
+}
+
+.eachProductCard {
+  width: 300px;
+  min-height: 450px;
+  
+  border:2px solid blue;
+  cursor: pointer;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.productCardImage {
+  align-self: center;
+  height: 200px;
+  width: 200px;
+}
+
+.productCardTitle {
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.productCardTitle:hover, .productCardPrice:hover{
+    color: black;
+}
+
+.productCardPrice {
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+}
+
+.productCartBtn {
+  background-color: RGB(68, 68, 68);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.productCartBtn:hover {
+  color: #fd7e14;
+}
+
+.btn-primary {
+  /* USE !IMPORTANT TO OVERWRITE BOOTSTRAP. Please change if you find a better way  */
+  background-color: transparent !important;
+  border: none !important;
+  float: right;
+  color: black !important;
+}
+
+@media screen and (max-width: 950px) {
+  .btn-primary {
+    display: none !important;
+  }
 }

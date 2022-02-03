@@ -2,7 +2,7 @@ import React from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState } from 'react';
 
-import '../../Design/HomepageCards.css'
+import '../../Design/Cards.css'
 
 const rowCounts = [3,4];
 
