@@ -83,7 +83,7 @@ function Product(props) {
                 itemsToShow.map(item => {
                     return (
                         
-                        <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
+                        <CardDeck  className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
                             <Card style={{ height: '410px' }}>
                                 <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
