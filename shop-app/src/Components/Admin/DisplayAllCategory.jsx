@@ -22,9 +22,9 @@ function DisplayAllCategory() {
     function capitaliseFirstLetter(name) {
         let newName = [];
         for (let i = 0; i < name.length; i++) {
-            i === 0 ? 
-            newName.push(name[i].toUpperCase()) : 
-            newName.push(name[i]);
+            i === 0 ?
+                newName.push(name[i].toUpperCase()) :
+                newName.push(name[i]);
         }
         return newName.join("");
     }
@@ -46,28 +46,28 @@ function DisplayAllCategory() {
         }
 
         axios
-        .patch(`http://localhost:8080/categories/${id}`, updatedCategory)
-        .then(() => {
-            alert('category updated');
-            window.location = "/view-all/categories";
-        })
-        .catch(err => {
-            alert('could not be updated');
-            console.log(err);
-        });
+            .patch(`http://localhost:8080/categories/${id}`, updatedCategory)
+            .then(() => {
+                alert('category updated');
+                window.location = "/view-all/categories";
+            })
+            .catch(err => {
+                alert('could not be updated');
+                window.location = "/view-all/categories";
+            });
     }
 
     function handleDeleteCategory(id) {
         axios
-        .delete(`http://localhost:8080/categories/${id}`)
-        .then(() => {
-            alert('category deleted');
-            window.location = "/view-all/categories";
-        })
-        .catch(err => {
-            alert('could not be deleted');
-            console.log(err);
-        });
+            .delete(`http://localhost:8080/categories/${id}`)
+            .then(() => {
+                alert('category deleted');
+                window.location = "/view-all/categories";
+            })
+            .catch(err => {
+                alert('could not be deleted');
+                console.log(err);
+            });
     }
 
     function handleAddCategory() {
@@ -77,15 +77,15 @@ function DisplayAllCategory() {
         }
 
         axios
-        .post(`http://localhost:8080/categories`, newCategory)
-        .then(() => {
-            alert('category added');
-            window.location = "/view-all/categories";
-        })
-        .catch(err => {
-            alert('could not be added');
-            console.log(err); 
-        });
+            .post(`http://localhost:8080/categories`, newCategory)
+            .then(() => {
+                alert('category added');
+                window.location = "/view-all/categories";
+            })
+            .catch(err => {
+                alert('could not be added');
+                console.log(err);
+            });
     }
 
     function handleToggleAdd() {
@@ -96,10 +96,10 @@ function DisplayAllCategory() {
             </div>
         ) : (
             <>
-            <input onChange={handleAddInputChange} placeholder="Category name"/>
-            <div className="category-func">
-                <button id="category-add" onClick={handleAddCategory}>Add</button>
-            </div>
+                <input onChange={handleAddInputChange} placeholder="Category name" />
+                <div className="category-func">
+                    <button id="category-add" onClick={handleAddCategory}>Add</button>
+                </div>
             </>
         )
     }
@@ -108,50 +108,50 @@ function DisplayAllCategory() {
         <div className="category-all-container">
             <h1 >All Categories</h1>
             <div className="category-all">
-            {
-                categories.map(category => {
-                    return(
-                        <div className="category-single">
-                            <button 
-                                class="category-delete"
-                                onClick={() => handleDeleteCategory(category.id)} 
-                            > 
-                            x
-                            </button>
-                            <h2>{capitaliseFirstLetter(category.name)}</h2>
-                        </div>
-                    )
-                })
-            }
-            
-            {
-                handleToggleAdd()
-            }
+                {
+                    categories.map(category => {
+                        return (
+                            <div className="category-single">
+                                <button
+                                    class="category-delete"
+                                    onClick={() => handleDeleteCategory(category.id)}
+                                >
+                                    x
+                                </button>
+                                <h2>{capitaliseFirstLetter(category.name)}</h2>
+                            </div>
+                        )
+                    })
+                }
+
+                {
+                    handleToggleAdd()
+                }
             </div>
         </div>
     ) : (
         <div className="category-all-container">
             <h1 >All Categories</h1>
             <div className="category-all">
-            {
-                categories.map(category => {
-                    return(
-                        <div className="category-single">
-                            <button onClick={() => handleDeleteCategory(category.id)} class="category-delete"> x </button>
-                            <input 
-                                id={category.id}
-                                onChange={handleEditInputChange}
-                                name="categoryName" 
-                                className="category-name-input" 
-                                placeholder={capitaliseFirstLetter(category.name)} 
-                            />
-                        </div>
-                    )
-                })
-            }
+                {
+                    categories.map(category => {
+                        return (
+                            <div className="category-single">
+                                <button onClick={() => handleDeleteCategory(category.id)} class="category-delete"> x </button>
+                                <input
+                                    id={category.id}
+                                    onChange={handleEditInputChange}
+                                    name="categoryName"
+                                    className="category-name-input"
+                                    placeholder={capitaliseFirstLetter(category.name)}
+                                />
+                            </div>
+                        )
+                    })
+                }
                 <div className="category-func">
-                    <button 
-                        id="category-submit" 
+                    <button
+                        id="category-submit"
                         onClick={handleEditCategory}
                     >
                         Submit
@@ -160,7 +160,7 @@ function DisplayAllCategory() {
             </div>
         </div>
     )
-    
+
 }
 
 export default DisplayAllCategory;
