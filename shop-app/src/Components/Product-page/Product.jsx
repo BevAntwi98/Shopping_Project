@@ -82,7 +82,7 @@ function Product(props) {
             {
                 itemsToShow.map(item => {
                     return (
-                        
+                     
                         <CardDeck  className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
                             <Card style={{ height: '410px' }}>
@@ -96,6 +96,7 @@ function Product(props) {
                                 <Button className='Btn' onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
                             </Card>
                         </CardDeck>
+                     
                     )
                 })
             }
