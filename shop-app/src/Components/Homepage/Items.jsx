@@ -6,7 +6,7 @@ import { BrowserRouter as Router} from 'react-router-dom'
 
 import {Col, Row } from 'react-bootstrap';
 
-import '../../Design/HomepageCards.css'
+import '../../Design/Cards.css'
 
 const Items = ({rowCount}) => {
     
