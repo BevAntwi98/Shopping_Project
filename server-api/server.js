@@ -101,7 +101,7 @@ app.post("/categories", [ // ADDS A CATEGORY
 
 app.post("/categories/:id/items", [ // ADDS AN ITEM WITH A CATEGORY
     check('title').trim().notEmpty(),
-    check('price').trim().isFloat(),
+    check('price').trim().isFloat().notEmpty(),
     check('image').trim().isURL().exists(),
     check('description').trim().notEmpty()
 ], async (req, res) => {
@@ -134,9 +134,10 @@ app.patch("/categories/:id", [ // UPDATES CATEGORY NAME
 
 app.patch("/items/:itemid", [ // UPDATES ITEM VALUES
     check('title').trim().notEmpty(),
-    check('price').trim().isFloat(),
+    check('price').trim().isFloat().notEmpty(),
     check('image').trim().isURL().exists(),
-    check('description').trim().notEmpty()
+    check('description').trim().notEmpty(),
+    check('categoryId').trim().notEmpty().isInt()
 ], async (req, res) => {
     if (!parseInt(req.params.itemid)) return res.sendStatus(400);
 
@@ -144,6 +145,7 @@ app.patch("/items/:itemid", [ // UPDATES ITEM VALUES
     let priceExist = true;
     let imageExist = true;
     let descExist = true;
+    let categoryExist = true;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const allErrors = errors.array();
@@ -152,8 +154,9 @@ app.patch("/items/:itemid", [ // UPDATES ITEM VALUES
             if (error.param === "price") priceExist = false;
             if (error.param === "image") imageExist = false;
             if (error.param === "description") descExist = false;
+            if (error.param === "categoryId") categoryExist = false;
         });
-        if (!titleExist && !priceExist && !imageExist && !descExist) return res.status(400).json({ errors: allErrors });
+        if (!titleExist && !priceExist && !imageExist && !descExist && !categoryExist) return res.status(400).json({ errors: allErrors });
     }
 
     if (titleExist) await Item.update(
@@ -175,6 +178,16 @@ app.patch("/items/:itemid", [ // UPDATES ITEM VALUES
         { description: req.body.description },
         { where: { id: req.params.itemid } }
     );
+
+    if (categoryExist) {
+        const categoryInTable = await Category.findOne({where: {id: req.body.categoryId}});
+        if (!categoryInTable) return res.status(400).json({ error: "Category does not exist in the table" });
+        await Item.update(
+            { category_id: req.body.categoryId },
+            { where: { id: req.params.itemid } }
+        )
+    }
+
     res.sendStatus(200);
 });
 

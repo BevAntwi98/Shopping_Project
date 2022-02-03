@@ -9,6 +9,7 @@
 }
 
 .cardPrice {
+  cursor: pointer;
   text-align: center;
   font-size: 22px;
 }

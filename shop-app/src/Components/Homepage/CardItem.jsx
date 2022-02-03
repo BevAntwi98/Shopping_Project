@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, Button, Row } from 'react-bootstrap';
-import { Link, useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 import '../../Design/HomepageCards.css'
 

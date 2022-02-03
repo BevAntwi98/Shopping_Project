@@ -4,7 +4,7 @@ import "../../Design/AddItem.css"
 
 function AddItemToPage() {
     const [categories, setCategories] = useState([])
-    const [inputs, setInputs] = useState({ iTitle: "", iImage: "", iPrice: 0, iDesc: "", iCategory: 0 });
+    const [inputs, setInputs] = useState({ iTitle: "", iImage: "", iPrice: null, iDesc: "", iCategory: null });
 
     useEffect(() => {
         fetch("http://localhost:8080/categories")
@@ -84,7 +84,7 @@ function AddItemToPage() {
                         required
                         onChange={handleInputChange}
                     >
-                        <option value={0}>Select a Category</option>
+                        <option value={0} disabled selected hidden>Select a Category</option>
                         {
                             categories.map(category => {
                                 return (

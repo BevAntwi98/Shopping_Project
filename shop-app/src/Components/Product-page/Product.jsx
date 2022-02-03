@@ -4,10 +4,11 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
+import { useNavigate} from 'react-router-dom'
 import "../../Design/Product.css";
-import PageItem from 'react-bootstrap/PageItem'
 
 function Product(props) {
+    const navigate = useNavigate();
     const NUM_ITEMS_SHOW = 10;
     const [cart, setCart] = useState([]);
     const [category, setCategory] = useState({});
@@ -84,12 +85,11 @@ function Product(props) {
                     return (
                         
                         <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
-
                             <Card style={{ height: '410px' }}>
-                                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
+                                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding: '10px', cursor: 'pointer', }} src={item.image} onClick={() => {navigate('/product/'+item.id)}}/>
                                 <Card.Body>
-                                    <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{item.title}</Card.Title><br />
-                                    <Card.Text className='cardPrice'>£{item.price}</Card.Text>
+                                    <Card.Title onClick={() => {navigate('/product/'+item.id)}} style={{ fontSize: '15px', textAlign: 'center', cursor: 'pointer',}}>{item.title}</Card.Title><br />
+                                    <Card.Text onClick={() => {navigate('/product/'+item.id)}} className='cardPrice'>£{item.price}</Card.Text>
                                 </Card.Body>
                                 {/* FUNCTIONALITY */}
 
