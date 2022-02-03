@@ -104,11 +104,11 @@ function DisplayCard(props) {
     return toggle ? (
         <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
-            <Card style={{ height: '410px' }}>
-                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={props.image} />
+            <Card className='cardItem' style={{ height: '410px' }}>
+                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} alt={props.desc}  src={props.image} />
                 <Card.Body>
                     <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{props.title}</Card.Title><br />
-                    <Card.Text className='cardDesc'>{props.desc}</Card.Text><br />
+                    {/* <Card.Text className='cardDesc'>{props.desc}</Card.Text><br /> */}
                     <Card.Text className='cardPrice'>£{props.price}</Card.Text><br />
                     <Card.Text className='cardCategory'>{props.category}</Card.Text>
                 </Card.Body>
@@ -121,7 +121,7 @@ function DisplayCard(props) {
         <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
 
             <Card style={{ height: '410px' }}>
-                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={props.image} />
+                <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} alt={props.desc} src={props.image} />
                 <input name="itemImage" onChange={handleInputChange} className='input-cardImage' type="text" placeholder={props.image} />
                 <Card.Body>
                     <input name="itemTitle" onChange={handleInputChange} style={{ fontSize: '15px', textAlign: 'center' }} placeholder={props.title} /><br />

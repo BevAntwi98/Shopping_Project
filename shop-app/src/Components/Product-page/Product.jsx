@@ -1,16 +1,10 @@
-
 import { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
-import { useNavigate} from 'react-router-dom'
 import "../../Design/Product.css";
 
 
 function Product(props) {
-    const navigate = useNavigate();
-    const NUM_ITEMS_SHOW = 10;
+    const NUM_ITEMS_SHOW = 8;
     const [cart, setCart] = useState([]);
     const [category, setCategory] = useState({});
     const [items, setItems] = useState([]);
@@ -58,7 +52,6 @@ function Product(props) {
     }
 
     console.log(buttons);
-
     let updateCart = [];
 
     // Adding to cart functionality
@@ -71,56 +64,30 @@ function Product(props) {
         console.log(localStorage.getItem('cart-items'));
     }
 
-    function clearLocalStorage() {
-        localStorage.clear();
-        console.log(localStorage.getItem('cart-items'));
-    }
-
     return (
-
-
         <div className="categoryContainer">
             <div className="categoryTitle">
                 <h1 className="text-center">{category.name}</h1>
             </div>
             <div className="productCards">
-            {
-                itemsToShow.map(item => {
-                    return (
-                       
-                    <figure className="eachProductCard" data-testid='card-1'>
-                        <a className='productCardImage' href={`/product/${item.id}`}><img className='productCardImage' src={item.image} alt={item.description} /></a>
-                      <figcaption>
-                        <a className="productCardTitle" href={`/product/${item.id}`}><p>{item.title}</p></a>
-                        <a className="productCardPrice" href={`/product/${item.id}`}>£{item.price}</a>
-                      </figcaption>
-                        <button className='productCartBtn' onClick={() => {console.log("add to basket: ",item.id)}}>Add to Cart</button>
-                        </figure>  
-                     
-                            
-                        // <CardDeck className='cardDeck' style={{ display: 'inline-block', width: '20.6em', justifyContent: 'center', margin: '0.6rem', marginTop: '6%', marginLeft: '40px' }}>
-
-                        //     <Card style={{ height: '410px' }}>
-                        //         <Card.Img height={'200px'} style={{ width: '200px', alignSelf: 'center', padding:'10px' }} src={item.image} />
-                        //         <Card.Body>
-                        //             <Card.Title style={{ fontSize: '15px', textAlign: 'center' }}>{item.title}</Card.Title><br />
-                        //             <Card.Text className='cardPrice'>£{item.price}</Card.Text>
-                        //         </Card.Body>
-                        //         {/* FUNCTIONALITY */}
-
-                        //         <Button className='Btn' onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
-                        //     </Card>
-                        // </CardDeck>
-                        
-                    )
-                })
-            }
+                {
+                    itemsToShow.map(item => {
+                        return (
+                            <figure className="eachProductCard" data-testid='card-1'>
+                                <a className='productCardImage' href={`/product/${item.id}`}><img className='productCardImage' src={item.image} alt={item.description} /></a>
+                                <figcaption>
+                                    <a className="productCardTitle" href={`/product/${item.id}`}><p>{item.title}</p></a>
+                                    <a className="productCardPrice" href={`/product/${item.id}`}>£{item.price}</a>
+                                </figcaption>
+                                <button className='productCartBtn' onClick={() => { console.log("add to basket: ", item.id) }}>Add to Cart</button>
+                            </figure>
+                        )
+                    })
+                }
             </div>
-            
             <div className="pagination">
-            <Pagination className="pg-btn-container">{buttons}</Pagination>
+                <Pagination className="pg-btn-container">{buttons}</Pagination>
             </div>
-            {/* <button onClick={clearLocalStorage}>Clear Local Storage</button> */}
         </div>
     );
 
