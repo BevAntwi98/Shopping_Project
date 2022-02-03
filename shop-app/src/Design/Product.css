@@ -92,7 +92,6 @@
 }
 
 @media screen and (max-width: 300px) {
-
   .btn-primary {
     display: none !important;
   }
@@ -100,12 +99,11 @@
     width: 250px;
     min-height: 450px;
   }
-
   .pg-btn-container {
     width: fit-content;
     margin: 0 auto;
     margin-top:5px;
     margin-bottom: 30px;
-}  
+}
 
 }

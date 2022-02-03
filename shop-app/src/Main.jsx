@@ -26,7 +26,7 @@ function Main() {
                 <Route path="*" element={<Error404/>}/>
                 <Route path="/access-login/admin" element={<AdminLogin />}/>
                 <Route path="/admin" element={<AdminPage/>}/>
-                <Route path="/view-all" element={<DisplayAll/>}/>
+                <Route path="/view-all" element={<DisplayAll />}/>
                 <Route path="/add-item" element={<AddItemToPage/>}/>
                 <Route path="/view-all/categories" element={<DisplayAllCategory />} />
             </Routes>
