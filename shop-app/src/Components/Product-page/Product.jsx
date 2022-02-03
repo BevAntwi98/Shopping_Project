@@ -4,12 +4,12 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
+import { useNavigate} from 'react-router-dom'
 import "../../Design/Product.css";
-
-import PageItem from 'react-bootstrap/PageItem'
 
 
 function Product(props) {
+    const navigate = useNavigate();
     const NUM_ITEMS_SHOW = 10;
     const [cart, setCart] = useState([]);
     const [category, setCategory] = useState({});
