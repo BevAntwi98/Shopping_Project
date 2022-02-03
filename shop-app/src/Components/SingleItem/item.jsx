@@ -20,12 +20,12 @@ function Item() {
       <>
       <div className="details">
         <div className="img">
-          <img src={item.image} />
+          <img src={item.image} alt={item.description}/>
         </div>
 
         <div className="infoSection">
           <div className="row">
-            <h2 className="title">{item.title}</h2>
+            <h2 className="itemTitle">{item.title}</h2>
             <span>£{item.price}</span>
             <p>{item.description}</p>
           </div>
