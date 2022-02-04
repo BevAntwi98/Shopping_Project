@@ -8,7 +8,7 @@ const CardItem = ({items, key}) => {
 
     const navigate = useNavigate();
   return(
-        <Card style={{ width: '18rem' }} key={key}>
+        <Card style={{ width: '18rem' }} key={key} >
         <Card.Img variant="top" src={items.image} />
         <Card.Body>
             <Card.Title>{items.title}</Card.Title>
@@ -17,7 +17,6 @@ const CardItem = ({items, key}) => {
             <Button variant="secondary" onClick={() => {console.log("add to basket: ",items.id)}}>Add to Basket</Button>
         </Card.Body>
         </Card>
-        
   );
 };
 
