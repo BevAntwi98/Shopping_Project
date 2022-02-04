@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
-
-
 import '../../Design/Carousel.css';
 import image1 from "../images/ph1.jpeg"; // Import image
 import image2 from "../images/ph2.jpeg"; // Import image

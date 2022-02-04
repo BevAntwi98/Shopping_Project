@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import PageItem from 'react-bootstrap/PageItem'
+import '../../Design/Product.css'
 import Cart from '../CartLogic/Cart';
 import ItemProduct from '../CartLogic/ItemProduct';
 
@@ -33,8 +34,7 @@ function Product(props) {
             .catch(error => console.log(error));
         if (!(localStorage.getItem('cart'))) return; 
         setCart(Cart.convertToCartObject(JSON.parse(localStorage.getItem('cart'))._content));
-        console.log(cart);
-    }, [props.id]);
+    }, [props.id, active]);
 
     function handlePageUpdate(n) {
         setActive(n);
@@ -43,9 +43,6 @@ function Product(props) {
     }
 
     let buttons = [];
-    console.log(items.length / NUM_ITEMS_SHOW);
-    console.log(Math.ceil(items.length / NUM_ITEMS_SHOW));
-
     for (let n = 1; n <= Math.ceil(items.length / NUM_ITEMS_SHOW); n++) {
         buttons.push(
             <Pagination.Item className="pg-btn" key={n} active={n === active} onClick={() => handlePageUpdate(n)}>
@@ -54,19 +51,14 @@ function Product(props) {
         )
     }
 
-    console.log(buttons);
-    let updateCart = [];
-
+   
     // Adding to cart functionality
     function handleAddToCart(id,quantity=1) {
-        console.log(cart);
         let tempCart = cart;
         tempCart.addToCart(new ItemProduct(id, quantity));
 
-        console.log("added to cart!");
-
         localStorage.setItem('cart', JSON.stringify(tempCart));
-        console.log(localStorage.getItem('cart'));
+        alert('Added to Cart ');
     }
 
     return (
@@ -84,7 +76,7 @@ function Product(props) {
                                     <a className="productCardTitle" href={`/product/${item.id}`}><p>{item.title}</p></a>
                                     <a className="productCardPrice" href={`/product/${item.id}`}>£{item.price}</a>
                                 </figcaption>
-                                <button className='productCartBtn' onClick={() => { console.log("add to basket: ", item.id) }}>Add to Cart</button>
+                                <button className='productCartBtn' onClick={() => { handleAddToCart(item.id) }}>Add to Cart</button>
                             </figure>
                         )
                     })

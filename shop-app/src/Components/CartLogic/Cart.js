@@ -68,7 +68,7 @@ class Cart {
 
     removeFromCart = (id) => {
         this._valCounter -= 1;
-        this._content = this.content.filter(item => item.id !== id);
+        this._content = this._content.filter(item => item.id !== id);
     }
 
     setItemQuantity = (id,newQuantity) => {
@@ -80,8 +80,6 @@ class Cart {
                 item._quantity = newQuantity;
                 if (newQuantity == 0){
                     this._content.splice(this._content.indexOf(item),1);
-                    console.log(this._content);
-                    console.log("cut out of basket");
                 }
                 return;
             }

@@ -87,8 +87,6 @@ function DisplayCard(props) {
             categoryId,
         }
 
-        console.log(updatedItem);
-
         axios
         .patch(`http://localhost:8080/items/${id}`, updatedItem)
         .then(() => {

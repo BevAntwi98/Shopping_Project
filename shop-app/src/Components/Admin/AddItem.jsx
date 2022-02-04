@@ -20,7 +20,6 @@ function AddItemToPage() {
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        console.log(name, value);
         let newInputs = inputs;
         newInputs[name] = value;
         setInputs(newInputs);
@@ -70,12 +69,15 @@ function AddItemToPage() {
             alert('Item has been created');
             window.location.href = "/view-all";
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            alert('Item could not be created');
+            console.log(err)
+        });
     }
 
     return (
         <div className="addItemContainer">
-            <form className='form'>
+            <div className='form'>
                 <h2 className='addItemTitle'>ADD ITEM</h2>
                 <div className="each">
                     <select 
@@ -137,7 +139,7 @@ function AddItemToPage() {
                 </div>
 
                 <button type="submit" className='submitBtn' onClick={handleSubmitForm}>Submit</button>
-            </form>
+            </div>
 
         </div>
     )

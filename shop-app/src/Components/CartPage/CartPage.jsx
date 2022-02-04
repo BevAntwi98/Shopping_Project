@@ -1,9 +1,8 @@
 import { Button, Row, Col, Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import Footer from '../Homepage/Footer';
 import CartItem from './CartItems';
 import Cart from '../CartLogic/Cart';
-import ItemProduct from '../CartLogic/ItemProduct';
+import '../../Design/CartPage.css';
 
 export default function CartPage({items,loading}) {
     let [cart,setCart] = useState(new Cart(0));   // Cart: content -> Items: id, quantity
@@ -36,10 +35,6 @@ export default function CartPage({items,loading}) {
         tempCart.setItemQuantity(id,quantity);
         setCart(tempCart);
         setUpdateCart(!updateCart);
-        console.log(cart);
-        console.log(itemInfo);
-
-
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
@@ -48,12 +43,8 @@ export default function CartPage({items,loading}) {
         tempCart.removeFromCart(id);
         setCart(tempCart);
         setUpdateCart(!updateCart);
-        console.log(cart);
-
         localStorage.setItem('cart', JSON.stringify(cart));
-
-        console.log(cart);
-        console.log(itemInfo);
+        window.location = "/cart";
     }
 
     const verifyNewQuantity = (id,quantity) => {
@@ -80,6 +71,7 @@ export default function CartPage({items,loading}) {
             items.forEach(stock=>{
                 if (stock.id == cartProduct.id){
                     basketContent.push(stock);
+                
                 }
             });
         });
@@ -102,13 +94,13 @@ const CartInterface = ({itemInfo,setCounter,cart,styling,deleteItem}) => {
 
     try{
         return(
-        <>
+        <div className='cart-pg-container'>
             <h1 style={{ textAlign: "center" }}>Shopping Cart</h1>
             <Container>
                 {
                     cart.content.map(item => 
                         <CartItem 
-                        deleteItem={deleteItem}
+                            deleteItem={deleteItem}
                             setCounter={setCounter} 
                             id={item.id}
                             counter={item._quantity}
@@ -126,7 +118,7 @@ const CartInterface = ({itemInfo,setCounter,cart,styling,deleteItem}) => {
                     </Col>
                 </Row>
             </Container>
-        </>
+        </div>
         );
     }catch(err){
         console.error(err);
