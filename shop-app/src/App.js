@@ -4,12 +4,10 @@ import Items from './Components/Homepage/Items';
 import HomeFilter from './Components/Homepage/HomeFilter';
 import { useState } from 'react';
 
+//learn react
+function App(props) {
 
-function App() {
-  const [rowCount,useChangeRow] = useState(2);
-
-
-
+  const [rowCount,useChangeRow] = useState(3);
   const SetRow = (noOfRows) => {
     useChangeRow(noOfRows);
   }

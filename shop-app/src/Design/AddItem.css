@@ -1,0 +1,58 @@
+
+.addItemContainer{
+    position: relative;
+    min-height: calc(100vh - 125px);
+}
+
+.form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.each, .selectOption{
+margin:15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.each input{
+    padding: 8px;
+    min-width: 300px;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.submitBtn {
+border:1px solid transparent;
+border-radius: 5px;
+margin-top: 10px;
+padding: 5px 70px;
+background-color: rgb(125, 209, 125);
+color: black;
+margin-bottom: 10px;
+}
+
+.submitBtn:hover{
+    background-color: green;
+    color: white;
+}
+@media screen and (max-width: 950px) {
+    .each input{
+        min-width: 500px;
+        
+    }
+}
+@media screen and (max-width: 450px) {
+    .each input{
+        min-width: 240px;
+        
+    }
+    .submitBtn{
+        margin-bottom: 10px;
+    }
+}

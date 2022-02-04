@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import PageItem from 'react-bootstrap/PageItem'
 import Cart from '../CartLogic/Cart';
@@ -10,20 +6,29 @@ import ItemProduct from '../CartLogic/ItemProduct';
 
 
 function Product(props) {
-    const NUM_ITEMS_SHOW = 4;
+    const NUM_ITEMS_SHOW = 8;
     let [cart,setCart] =  useState(new Cart(0));
     const [category, setCategory] = useState({});
     const [items, setItems] = useState([]);
     const [itemsToShow, setItemsToShow] = useState([]);
-    const [firstItem, setFirstItem] = useState(0);
-    const [lastItem, setLastItem] = useState(NUM_ITEMS_SHOW);
+    const [firstIndex, setFirstIndex] = useState(0);
+    const [lastIndex, setLastIndex] = useState(NUM_ITEMS_SHOW);
+    const [active, setActive] = useState(1);
 
     useEffect(() => {
         fetch(`http://localhost:8080/categories/${props.id}`)
             .then(res => res.json())
             .then(res => {
+                let responseItems = res.items;
+                // const length = responseItems.length
+                // for (let j = 0; j < 10; j++) {
+                //     for (let i = 0; i < length; i++) {
+                //         responseItems.push(res.items[i]);
+                //     }
+                // }
                 setCategory(res);
-                setItems(res.items);
+                setItems(responseItems);
+                setItemsToShow(responseItems.slice(firstIndex, lastIndex));
             })
             .catch(error => console.log(error));
         if (!(localStorage.getItem('cart'))) return; 
@@ -31,43 +36,26 @@ function Product(props) {
         console.log(cart);
     }, [props.id]);
 
-    function handlePageUpdate() {
-        setItemsToShow(items.slice(firstItem, lastItem));
+    function handlePageUpdate(n) {
+        setActive(n);
+        setFirstIndex((NUM_ITEMS_SHOW * n) - NUM_ITEMS_SHOW);
+        setLastIndex(NUM_ITEMS_SHOW * n);
     }
 
-    function handleShowNextPage() {
-        const newFirstItem = firstItem + NUM_ITEMS_SHOW;
-        const newLastItem = lastItem + NUM_ITEMS_SHOW;
-        setFirstItem(newFirstItem);
-        setLastItem(newLastItem);
-    }
-
-    function handleShowPrevPage() {
-        const newFirstItem = firstItem - NUM_ITEMS_SHOW;
-        const newLastItem = lastItem - NUM_ITEMS_SHOW;
-        setFirstItem(newFirstItem);
-        setLastItem(newLastItem);
-    }
-
-    let active = 1;
     let buttons = [];
-    for (let n = 1; n <= NUM_ITEMS_SHOW; n++) {
+    console.log(items.length / NUM_ITEMS_SHOW);
+    console.log(Math.ceil(items.length / NUM_ITEMS_SHOW));
+
+    for (let n = 1; n <= Math.ceil(items.length / NUM_ITEMS_SHOW); n++) {
         buttons.push(
-            <Pagination.Item key={n} active={n === active} value={n} onClick={changeActive}>
+            <Pagination.Item className="pg-btn" key={n} active={n === active} onClick={() => handlePageUpdate(n)}>
                 {n}
             </Pagination.Item>,
         )
     }
 
-    function changeActive(event) {
-        active++;
-    }
-
-    const paginationButtons = (
-        <div>
-            <Pagination>{buttons}</Pagination>
-        </div>
-    );
+    console.log(buttons);
+    let updateCart = [];
 
     // Adding to cart functionality
     function handleAddToCart(id,quantity=1) {
@@ -81,44 +69,32 @@ function Product(props) {
         console.log(localStorage.getItem('cart'));
     }
 
-    function clearLocalStorage() {
-        localStorage.clear();
-        console.log("cleared storage!");
-        console.log(localStorage.getItem('cart'));
-    }
-
     return (
-        <>
-            <div>
-                {<h1 className="text-center">{category.name}</h1>}
+        <div className="categoryContainer">
+            <div className="categoryTitle">
+                <h1 className="text-center">{category.name}</h1>
+            </div>
+            <div className="productCards">
                 {
-                    items.map(item => {
+                    itemsToShow.map(item => {
                         return (
-                            <Row id={`item-${item.id}`}>
-                                <Col md={2}>
-                                    <Card>
-                                        <Card.Img variant="top" height={200} src={item.image} />
-                                    </Card>
-                                </Col>
-                                <Col md={4}>
-                                    <Card>
-                                        <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                            <Card.Text className="fw-bold">£{item.price}</Card.Text>
-                                        </Card.Body>
-                                        {/* FUNCTIONALITY */}
-                                        <Button variant="primary" onClick={() => handleAddToCart(item.id)}>Add to Cart</Button>
-                                    </Card>
-                                </Col>
-                            </Row>
+                            <figure className="eachProductCard" data-testid='card-1'>
+                                <a className='productCardImage' href={`/product/${item.id}`}><img className='productCardImage' src={item.image} alt={item.description} /></a>
+                                <figcaption>
+                                    <a className="productCardTitle" href={`/product/${item.id}`}><p>{item.title}</p></a>
+                                    <a className="productCardPrice" href={`/product/${item.id}`}>£{item.price}</a>
+                                </figcaption>
+                                <button className='productCartBtn' onClick={() => { console.log("add to basket: ", item.id) }}>Add to Cart</button>
+                            </figure>
                         )
                     })
                 }
-                {paginationButtons}
-                <button onClick={clearLocalStorage}>Clear Local Storage</button>
             </div>
-        </>
+            <div className="pagination">
+                <Pagination className="pg-btn-container">{buttons}</Pagination>
+            </div>
+        </div>
     );
-}
 
-export default Product;
+}
+export default Product

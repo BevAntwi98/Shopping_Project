@@ -1,22 +1,20 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
-import { Link, useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 
+import '../../Design/Cards.css'
 
-const CardItem = ({items, key}) => {
-
-    const navigate = useNavigate();
+const CardItem = ({items}) => {
   return(
-        <Card style={{ width: '18rem' }} key={key} >
-        <Card.Img variant="top" src={items.image} />
-        <Card.Body>
-            <Card.Title>{items.title}</Card.Title>
-            <Card.Text>£{items.price}</Card.Text>
-            <Button variant="primary" onClick={() => {navigate('/product/'+items.id)}}>More Information</Button>
-            <Button variant="secondary" onClick={() => {console.log("add to basket: ",items.id)}}>Add to Basket</Button>
-        </Card.Body>
-        </Card>
+        <figure className="eachCard" data-testid='card-1'>
+          <a className='cardImage' href={`/product/${items.id}`}><img className='cardImage' src={items.image} alt={items.description} /></a>
+        <figcaption>
+          <a className="cardTitle" href={`/product/${items.id}`}><p>{items.title}</p></a>
+          <a className="cardPrice" href={`/product/${items.id}`}>£{items.price}</a>
+        </figcaption>
+          <button className='cartBtn' onClick={() => {console.log("add to basket: ",items.id)}}>Add to Cart</button>
+          </figure>
+        
   );
 };
 

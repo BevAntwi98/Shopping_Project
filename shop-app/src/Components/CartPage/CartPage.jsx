@@ -122,7 +122,7 @@ const CartInterface = ({itemInfo,setCounter,cart,styling,deleteItem}) => {
             <Container>
                 <Row style={styling.row4} xs="auto">
                     <Col>
-                        <Button>Checkout</Button>
+                        <Button className='checkoutBtn'>Checkout</Button>
                     </Col>
                 </Row>
             </Container>
@@ -133,17 +133,6 @@ const CartInterface = ({itemInfo,setCounter,cart,styling,deleteItem}) => {
     }
 }
 
-
- // itemInfo.map(item => 
-                        
-                    // <CartItem 
-                    //     setCounter={setCounter} 
-                    //     id={item.id}
-                    //     counter={cart.getItemCount(item.id)}
-                    //     title={item.title} 
-                    //     image={item.image} 
-                    //     price={item.price} 
-                    // />)
 
 
 /*

@@ -2,9 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import CardItem from './CardItem'
-import { BrowserRouter as Router} from 'react-router-dom'
 
 import {Col, Row } from 'react-bootstrap';
+
+import '../../Design/Cards.css'
 
 const Items = ({rowCount}) => {
     

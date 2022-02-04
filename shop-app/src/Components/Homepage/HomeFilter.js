@@ -2,7 +2,9 @@ import React from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState } from 'react';
 
-const rowCounts = [2,3,4,5,6,7,8];
+import '../../Design/Cards.css'
+
+const rowCounts = [3,4];
 
 const HomeFilter = ({changeRow}) => {
   return (
@@ -18,7 +20,7 @@ const HomeFilter = ({changeRow}) => {
 
 const RowSelector = ({changeValue}) => {
   return (
-    <DropdownButton id="dropdown-basic-button" title="Items Per Row">
+    <DropdownButton className='ddown' id="dropdown-basic-button ddown" title="Items Per Row">
         {rowCounts.map(rC => (<Dropdown.Item onClick={() => changeValue(rC)}>{rC}</Dropdown.Item>))}
         
     </DropdownButton>

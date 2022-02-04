@@ -1,0 +1,33 @@
+.category-all-container {
+    min-height: calc(100vh - 125px);
+}
+
+.category-all-container h1 {
+    text-align: center;
+}
+
+.category-all {
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.category-single {
+    display: flex;
+    align-items: center;
+}
+
+.category-delete {
+    width: 25px;
+    height: 25px;
+}
+
+.category-all h2{
+    width: fit-content;
+}
+
+.category-func {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
