@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
-import "../../Design/Product.css";
-
+import PageItem from 'react-bootstrap/PageItem'
+import Cart from '../CartLogic/Cart';
+import ItemProduct from '../CartLogic/ItemProduct';
 
 
 function Product(props) {
     const NUM_ITEMS_SHOW = 8;
-    const [cart, setCart] = useState([]);
+    let [cart,setCart] =  useState(new Cart(0));
     const [category, setCategory] = useState({});
     const [items, setItems] = useState([]);
     const [itemsToShow, setItemsToShow] = useState([]);
@@ -30,9 +31,10 @@ function Product(props) {
                 setItemsToShow(responseItems.slice(firstIndex, lastIndex));
             })
             .catch(error => console.log(error));
-        setCart([localStorage.getItem('cart-items')]);
-        console.log(localStorage.getItem('cart-items'));
-    }, [props.id, active]);
+        if (!(localStorage.getItem('cart'))) return; 
+        setCart(Cart.convertToCartObject(JSON.parse(localStorage.getItem('cart'))._content));
+        console.log(cart);
+    }, [props.id]);
 
     function handlePageUpdate(n) {
         setActive(n);
@@ -56,13 +58,15 @@ function Product(props) {
     let updateCart = [];
 
     // Adding to cart functionality
-    function handleAddToCart(id) {
-        updateCart = cart;
-        updateCart.push(id);
+    function handleAddToCart(id,quantity=1) {
+        console.log(cart);
+        let tempCart = cart;
+        tempCart.addToCart(new ItemProduct(id, quantity));
 
-        setCart(updateCart);
-        localStorage.setItem('cart-items', JSON.stringify(cart));
-        console.log(localStorage.getItem('cart-items'));
+        console.log("added to cart!");
+
+        localStorage.setItem('cart', JSON.stringify(tempCart));
+        console.log(localStorage.getItem('cart'));
     }
 
     return (

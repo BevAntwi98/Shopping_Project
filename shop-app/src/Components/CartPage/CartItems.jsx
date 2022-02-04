@@ -3,11 +3,28 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 export default function CartItem(props) {
-    const [counter, setCounter] = useState(1);
     
+    const [counter,setCounters] = useState(props.counter);
+
+    const clickedButton = (val) => {
+        if (val==0){
+            return;
+        }
+        setCounters(val);
+    }
+
+    useEffect(()=>{
+        props.setCounter(props.id,counter);
+    },[counter]);
+    
+
+    const deleteItem = () => {
+        props.deleteItem(props.id);
+    }
+
     const title1 = {
         textAlign: "left",
         padding: "10px",
@@ -45,16 +62,6 @@ export default function CartItem(props) {
     //     width: "90%",
     //     position: 'fixed',
     // }
-
-    function handleCounterUpdate(add) {
-        if (add) {
-            setCounter(counter + 1);
-        } else {
-            if (counter === 0) return;
-            setCounter(counter - 1);
-        }
-    }
-
     return (
         <>
             {/* ITMES DISPLAY ROW */}
@@ -70,7 +77,8 @@ export default function CartItem(props) {
                             <Card.Title style={{fontSize: "1rem"}}>{props.title}</Card.Title>
                             <Card.Text style={{fontSize: "1.5rem", fontWeight: "600"}}>£{props.price}</Card.Text>
                             <div style={{border: "1px solid black", width: "25px", textAlign: "center", borderRadius: "5px", marginBottom: "5px"}}>{counter}</div>
-                            <Button onClick={() => handleCounterUpdate(true)}>+</Button> <Button onClick={() => handleCounterUpdate(false)}>-</Button>
+                            <Button onClick={() => clickedButton(counter+1)}>+</Button> <Button onClick={() => clickedButton(counter-1)}>-</Button>
+                            <Button onClick={() => deleteItem()} className='warning'>X</Button>
                         </Card.Body>
                     </Card>
                 </Col>
