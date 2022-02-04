@@ -1,5 +1,7 @@
 .category-container {
     min-height: calc(100vh - 125px);
+    width: 1200px;
+    margin: auto;
 }
 
 .addItemBtn{

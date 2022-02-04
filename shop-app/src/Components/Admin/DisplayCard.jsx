@@ -123,7 +123,7 @@ function DisplayCard(props) {
                 <input name="itemImage" onChange={handleInputChange} className='input-cardImage' type="text" placeholder={props.image} />
                 <Card.Body>
                     <input name="itemTitle" onChange={handleInputChange} style={{ fontSize: '15px', textAlign: 'center' }} placeholder={props.title} /><br />
-                    <textarea name="itemDescription" onChange={handleInputChange} className='input-cardDesc' placeholder={props.desc} />{}<br />
+                    {/* <textarea name="itemDescription" onChange={handleInputChange} className='input-cardDesc' placeholder={props.desc} />{}<br /> */}
                     <input name="itemPrice" onChange={handleInputChange} className='input-cardPrice' placeholder={props.price} /><br />
                     <select name="itemCategory" className='input-cardCategory' onChange={handleInputChange} placeholder={props.category}>
                         <option value={0} disabled selected hidden>Select a Category</option>
