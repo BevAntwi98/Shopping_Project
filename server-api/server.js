@@ -110,7 +110,6 @@ app.post("/categories/:id/items", [ // ADDS AN ITEM WITH A CATEGORY
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
     
-    console.log({ title: req.body.title, price: req.body.price, image: req.body.image, description: req.body.description, category_id: req.params.id });
     await Item.create(
         { title: req.body.title, price: req.body.price, image: req.body.image, description: req.body.description, category_id: req.params.id }
     );

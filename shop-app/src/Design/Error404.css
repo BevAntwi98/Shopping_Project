@@ -20,3 +20,7 @@
     text-align: center;
     padding: 50px;
 }
+
+.error-pg-container {
+    min-height: calc(100vh - 125px);
+}

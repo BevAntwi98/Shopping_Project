@@ -14,7 +14,7 @@ function AdminLogin() {
     }
 
     return (
-        <div>
+        <div className="admin-lgn-container">
             <h2 className='header'><header><i className="bi bi-cone-striped"><ConeStriped /></i> Admins Only <i class="bi bi-cone-striped"><ConeStriped /></i></header></h2>
             <Stack>
                 <Form style={{ padding: '100px' }}>
